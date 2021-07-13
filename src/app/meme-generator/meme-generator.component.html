@@ -1,0 +1,113 @@
+<div class="meme-generator-page" #topScroll>
+  <h1>
+    Мем-генератор
+  </h1>
+  <button
+    tuiButton
+    type="submit"
+    class="tui-space_right-3 tui-space_bottom-3"
+    appearance="primary"
+    (click)="goBack()"
+  >
+    Вернуться назад
+  </button>
+  <div class="meme-generator">
+    <h1>Предпросмотр</h1>
+    <div class="selected-image-container">
+      <div class="selected-image" #drawnMeme>
+        <img
+          *ngIf="memeCreation.controls.id.value"
+          [src]="memeCreation.controls.id.value"
+          width="500"
+          height="500"
+          crossorigin="anonymous"
+          loading="lazy"
+        >
+        <div class="text-content">
+          <div class="text">
+            {{ memeCreation.controls.top.value.toUpperCase() }}
+          </div>
+          <div class="text">
+            {{ memeCreation.controls.bottom.value.toUpperCase() }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <form [formGroup]="memeCreation" class="b-form">
+      <p>
+        Создай свой мемас!
+      </p>
+      <button
+        tuiButton
+        type="submit"
+        class="tui-space_right-3 tui-space_bottom-3"
+        appearance="primary"
+        [disabled]="!memeCreation.valid"
+        (click)="createMeme()"
+      >
+        Создать мем!
+      </button>
+      <tui-input class="text-input" tuiTextfieldSize="l" formControlName="top" type="text">
+        Текст вверху
+      </tui-input>
+      <br>
+      <div style="display: flex; flex-direction: row; flex-wrap: nowrap;">
+        <div class="base-images-scroll">
+          <img
+            loading="lazy"
+            *ngFor="let item of baseImages; index as i"
+            class="meme-image"
+            src="{{item}}"
+            (click)="selectBaseImage(item, i)"
+            [ngClass]="selectedImage === i ? 'chosen-image' : ''"
+          >
+        </div>
+      </div>
+      <br>
+      <tui-input class="text-input" tuiTextfieldSize="l" formControlName="bottom" type="text">
+        Текст внизу
+      </tui-input>
+      <br>
+    </form>
+
+  </div>
+  
+  
+  <h1>
+    Мемы на рассмотрение
+  </h1>
+  <div class="pending-image-container">
+    <div *ngFor="let image of pendingMemes" class="image-frame">
+      <img src="{{image.imagePath}}" class="pending-image" loading="lazy">
+      <div style="display: flex; flex-direction: row; justify-self: center;">
+        <button
+          tuiIconButton
+          type="button"
+          class="tui-space_right-3 tui-space_bottom-3"
+          icon="tuiIconLikeLarge"
+          [disabled]="false"
+          (click)="approveMeme(image.id)"
+        >
+        </button>
+        <button
+          tuiIconButton
+          type="button"
+          class="tui-space_right-3 tui-space_bottom-3"
+          icon="tuiIconDislikeLarge"
+          [disabled]="false"
+          (click)="rejectMeme(image.id)"
+        >
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <h1>
+    Одобренные мемы
+  </h1>
+  <div class="pending-image-container">
+    <div *ngFor="let image of approvedMemes" style="display: flex; flex-direction: column; align-items: center;">
+      <img src="{{image.imagePath}}" class="pending-image">
+    </div>
+  </div>
+</div>

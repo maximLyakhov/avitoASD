@@ -1,0 +1,130 @@
+@import "~swiper/swiper";
+@import "~swiper/components/pagination/pagination";
+
+.swiper-container {
+  width: 100vw;
+  height: 100vh;
+  background: #eaeaea;
+
+  .swiper-wrapper {
+    .swiper-slide {
+      .circle {
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+      }
+
+      .title-text {
+        padding: 20px;
+        font-size: 64px;
+        line-height: 56px;
+        font-weight: 800;
+        color: black;
+      }
+
+      .lead-text {
+        padding: 20px;
+        font-size: 18px;
+        line-height: 24px;
+        width: 40vw;
+        color: black;
+      }
+
+      .space-between {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      button {
+        width: max-content;
+        margin: 20px;
+      }
+
+      .screen {
+        width: 100vw;
+        height: 100vh;
+      }
+
+      .first-screen {
+        display: flex;
+        flex-direction: column;
+
+        .anniversary {
+          color: #ffffff;
+        }
+
+        .first-text-content {
+          color: #000000;
+          font-size: 18px;
+          width: 60%;
+          padding: 20px;
+        }
+      }
+
+      .third-screen {
+        background-color: #00aaff;
+        background-image: url(../../assets/3-rm-bg.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      .fourth-screen {
+        background-color: #00aaff;
+        background-image: url(../../assets/flash-game-bg.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      .sixth-screen {
+        background-color: #96cf25;
+      }
+
+      .nineth-screen {
+        background-color: #9b60fa;
+        // background-color: #ffffff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg stroke='%23CCC' stroke-width='0' %3E%3Crect fill='%23F5F5F5' x='-60' y='-60' width='110' height='240'/%3E%3C/g%3E%3C/svg%3E");
+        overflow: hidden;
+      }
+
+      .tenth-screen {
+        background-color: #ff6062;
+      }
+
+      .eleventh-screen {
+        background-color: #00aaff;
+      }
+
+      .twelveth-screen {
+        background-color: #96cf25;
+      }
+
+      .thirteenth-screen {
+        overflow: hidden;
+        background-color: #2d2d2d;
+      }
+    }
+  }
+
+  &.swiper-container-vertical {
+    .swiper-pagination-bullets {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+      }
+      .swiper-pagination-bullet-active {
+        border: 2px solid #2d2d2d;
+        width: 12px;
+        height: 12px;
+        padding: 2px;
+        background-color: transparent;
+        background-clip: content-box;
+        opacity: 0.5;
+      }
+    }
+  }
+}

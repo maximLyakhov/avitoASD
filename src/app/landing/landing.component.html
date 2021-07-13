@@ -1,0 +1,80 @@
+<swiper
+  [direction]="'vertical'"
+  [pagination]="{ clickable: true }"
+  [keyboard]="true"
+  [mousewheel]="true"
+  (activeIndexChange)="currentIndex($event)"
+  (afterInit)="swiperAfterInit($event)"
+>
+  <div class="swiper-pagination" #swiperPagination></div>
+  <ng-template swiperSlide>
+    <div class="first-screen screen space-between">
+      <app-avito-asd></app-avito-asd>
+    </div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="second-screen screen space-between">
+      <app-twenty-eleven></app-twenty-eleven>
+    </div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="third-screen screen space-between">
+      <app-retro-movie></app-retro-movie>
+    </div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="fourth-screen screen space-between">
+      <app-flash-game></app-flash-game>
+    </div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="fifth-screen screen space-between">
+      <app-meme-contest></app-meme-contest>
+    </div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="sixth-screen screen space-between">
+      <app-insta-mask></app-insta-mask>
+    </div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="seventh-screen screen space-between">
+      <app-twenty-one></app-twenty-one>
+    </div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="eighth-screen screen space-between">
+      <app-sticker-pack></app-sticker-pack>
+    </div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="nineth-screen screen space-between">
+      <app-flash-mob></app-flash-mob>
+    </div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="tenth-screen screen space-between">
+      <app-story-show></app-story-show>
+    </div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="eleventh-screen screen space-between">
+      <app-video-joke></app-video-joke>
+    </div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="twelveth-screen screen space-between">
+      <app-final-stream></app-final-stream>
+    </div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="thirteenth-screen screen">
+      <app-twenty-one-double></app-twenty-one-double>
+    </div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="fourteenth-screen screen space-between">
+      <app-future-with-alpaca></app-future-with-alpaca>
+    </div>
+  </ng-template>
+</swiper>
