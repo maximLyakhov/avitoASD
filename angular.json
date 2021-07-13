@@ -40,7 +40,10 @@
               "node_modules/@taiga-ui/core/styles/taiga-ui-global.less",
               "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "angular2-text-mask"
+            ]
           },
           "configurations": {
             "production": {
@@ -92,7 +95,7 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "disableHostCheck": true,
+            "disableHostCheck": true
           }
         },
         "extract-i18n": {

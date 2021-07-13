@@ -2,7 +2,9 @@ import { Component, NgZone, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
-import SwiperCore, { Pagination, Mousewheel, Keyboard, Swiper } from "swiper/core";
+import SwiperCore from 'swiper/core';
+import { Pagination, Mousewheel, Keyboard, Swiper } from 'swiper/core';
+
 SwiperCore.use([Pagination, Mousewheel, Keyboard]);
 
 @Component({
