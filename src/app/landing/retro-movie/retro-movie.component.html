@@ -1,25 +1,37 @@
-<div class="title-text">
-  Ролик из прошлого
+<div style="display: flex; flex-direction: row;">
+  <div style="display: flex;
+  flex-direction: column;
+  width: 10vw;
+  height: 100vh;
+  justify-content: space-around; overflow: visible;">
+    <img src="../../../assets/3-white-key-1.svg" style="width: 10vw;">
+    <img src="../../../assets/3-hexagon.svg" style="width: 7vw;">
+  </div>
+  <div style="    display: flex;
+  height: 100vh;
+  flex-direction: column;
+  width: 45vw;
+  justify-content: space-around;">
+    <div class="title-text">
+      Ролик <br> из прошлого
+    </div>
+    <div class="lead-text">
+      Если любишь капсулы времени, включай этот
+      ролик-послание, который записали твои коллеги
+      в 2011 году. Если не любишь, то все равно включай,
+      можно подумать у тебя есть выбор.
+    </div>
+    <div style="width: 450px; height: 246px; background-color: white; border-radius: 20px;">
+      1123
+    </div>
+    <div>
+      <img src="../../../assets/3-white-key-2.svg">
+    </div>
+  </div>
+  <div style="position: relative; display: flex; flex-direction: column; width: 45vw;">
+    <div style="position: absolute; width: 35%; height: 35%;">
+      <img src="../../../assets/3-red-circle.svg">
+      <img src="../../../assets/3-camera.png" style="width: 400px;">
+    </div>
+  </div>
 </div>
-<div class="lead-text">
-  Если любишь капсулы времени, включай этот
-  ролик-послание, который записали твои коллеги
-  в 2011 году. Если не любишь, то все равно включай,
-  можно подумать у тебя есть выбор.
-</div>
-<button
-  tuiButton
-  [disabled]="true"
-  type="submit"
-  class="tui-space_right-3 tui-space_bottom-3"
-  appearance="secondary"
->
-  <a routerLink="">
-    Смотреть ролик
-  </a>
-</button>
-<img src="../../../assets/3-red-circle.svg">
-<img src="../../../assets/3-white-key-1.svg">
-<img src="../../../assets/3-white-key-2.svg">
-<img src="../../../assets/3-camera.png">
-<img src="../../../assets/3-hexagon.svg">

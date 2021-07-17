@@ -1,15 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-twenty-one',
   templateUrl: './twenty-one.component.html',
   styleUrls: ['./twenty-one.component.scss']
 })
-export class TwentyOneComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class TwentyOneComponent {
 }

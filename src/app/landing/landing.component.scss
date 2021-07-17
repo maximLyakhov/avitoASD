@@ -14,17 +14,13 @@
       }
 
       .title-text {
-        padding: 20px;
         font-size: 64px;
         line-height: 56px;
         font-weight: 800;
-        color: black;
+        color: white;
       }
 
       .lead-text {
-        padding: 20px;
-        font-size: 18px;
-        line-height: 24px;
         width: 40vw;
         color: black;
       }
@@ -48,17 +44,6 @@
       .first-screen {
         display: flex;
         flex-direction: column;
-
-        .anniversary {
-          color: #ffffff;
-        }
-
-        .first-text-content {
-          color: #000000;
-          font-size: 18px;
-          width: 60%;
-          padding: 20px;
-        }
       }
 
       .third-screen {
@@ -67,11 +52,12 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
+        background-clip: content-box;
       }
 
       .fourth-screen {
         background-color: #00aaff;
-        background-image: url(../../assets/flash-game-bg.svg);
+        background-image: url(../../assets/flash-game-bg.svg), url(../../assets/3-rm-bg.svg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
@@ -82,9 +68,6 @@
       }
 
       .nineth-screen {
-        background-color: #9b60fa;
-        // background-color: #ffffff;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg stroke='%23CCC' stroke-width='0' %3E%3Crect fill='%23F5F5F5' x='-60' y='-60' width='110' height='240'/%3E%3C/g%3E%3C/svg%3E");
         overflow: hidden;
       }
 
