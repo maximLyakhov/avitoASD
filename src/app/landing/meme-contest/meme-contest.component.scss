@@ -1,0 +1,47 @@
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 5px;
+
+    background: $background-color;
+  }
+
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+.memes {
+  @include scrollbars(10px, #00aaff);
+}
+
+.lead-text {
+  margin-top: 2ch;
+  font-size: 26px;
+  line-height: 28px;
+  font-weight: 400;    
+  @media (max-width: 1024px) {
+    font-size: 22px;
+  }
+  @media (max-width: 680px) {
+    font-size: 20px;
+  }
+  @media (max-width: 420px) {
+    font-size: 16px;
+  }
+  @media (max-width: 320px) {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}

@@ -1,17 +1,10 @@
-<div style="display: flex; flex-direction: row;">
-  <div style="display: flex;
-  flex-direction: column;
-  width: 10vw;
-  height: 100vh;
-  justify-content: space-around; overflow: visible;">
+<div class="wrapper">
+
+  <div class="left">
     <img src="../../../assets/3-white-key-1.svg" style="width: 10vw;">
-    <img src="../../../assets/3-hexagon.svg" style="width: 7vw;">
   </div>
-  <div style="    display: flex;
-  height: 100vh;
-  flex-direction: column;
-  width: 45vw;
-  justify-content: space-around;">
+
+  <div class="center">
     <div class="title-text">
       Ролик <br> из прошлого
     </div>
@@ -21,17 +14,21 @@
       в 2011 году. Если не любишь, то все равно включай,
       можно подумать у тебя есть выбор.
     </div>
-    <div style="width: 450px; height: 246px; background-color: white; border-radius: 20px;">
+    <div class="video-wrapper">
       1123
     </div>
+  </div>
+
+  <div class="right">
     <div>
-      <img src="../../../assets/3-white-key-2.svg">
+      <img src="../../../assets/3-red-circle.svg"
+        style="position: absolute; z-index: 1; bottom: 0; right: 0; width: 80%;">
+      <img src="../../../assets/3-camera.png"
+        style="position: absolute; z-index: 2; bottom: 0; right: 0; width: 100%;">
     </div>
   </div>
-  <div style="position: relative; display: flex; flex-direction: column; width: 45vw;">
-    <div style="position: absolute; width: 35%; height: 35%;">
-      <img src="../../../assets/3-red-circle.svg">
-      <img src="../../../assets/3-camera.png" style="width: 400px;">
-    </div>
+
+  <div class="absolute">
+    <img src="../../../assets/3-bottom-wave.svg">
   </div>
 </div>

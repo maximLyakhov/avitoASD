@@ -36,7 +36,7 @@ import { TwentyOneDoubleComponent } from './twenty-one-double/twenty-one-double.
     FinalStreamComponent,
     TwentyOneComponent,
     StoryShowComponent,
-    TwentyOneDoubleComponent
+    TwentyOneDoubleComponent,
   ],
   imports: [
     CommonModule,
