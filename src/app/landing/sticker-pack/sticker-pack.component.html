@@ -3,13 +3,14 @@
   <img src="../../../assets/8-red-circle.svg" style="width: 45vw; position: absolute; z-index: -2;">
   <img src="../../../assets/8-red-thing.png"
     style="width: 55vw; z-index: -1; display: flex; flex-direction: column-reverse; position: absolute;">
+  <img src="../../../assets/8-bottom.svg" style="position: absolute; bottom: 0;">
 </div>
 
 <div class="main-row vhvw">
   <div class="main-column" style="width: 27.5vw; flex-direction: column-reverse;">
     <img src="../../../assets/8-white-key.svg" style="width: 15vw">
   </div>
-  <div class="main-column" style="width: 60vw; justify-content: center; align-items: center;">
+  <div class="main-column" style="width: 60vw; justify-content: center; align-items: center; background-color: red; border-radius: 50%; height: 60vh;">
     <div class="title-text">
       Стикерпак
     </div>
@@ -18,8 +19,7 @@
       сложносочиненных предложений.
       Качай и используй в рабочих чатах
     </div>
-    <button tuiButton [disabled]="true" type="submit" class="tui-space_right-3 tui-space_bottom-3"
-      appearance="secondary">
+    <button [disabled]="true" type="submit">
       <a routerLink="">
         Посмотреть стикеры!
       </a>

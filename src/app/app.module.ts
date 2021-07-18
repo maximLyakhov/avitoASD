@@ -1,7 +1,5 @@
 import { AdminInterceptor } from './admin/admin.interceptor';
 import { AdminModule } from './admin/admin.module';
-import { TuiInputModule } from '@taiga-ui/kit';
-import { TuiButtonModule, TuiRootModule } from '@taiga-ui/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,13 +17,10 @@ import { SwiperModule } from 'swiper/angular';
   ],
   imports: [
     BrowserModule,
-    TuiRootModule,
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    TuiInputModule,
-    TuiButtonModule,
     HttpClientModule,
     AdminModule,
     AppRoutingModule,

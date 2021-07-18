@@ -2,13 +2,7 @@
   <h1>
     Мем-генератор
   </h1>
-  <button
-    tuiButton
-    type="submit"
-    class="tui-space_right-3 tui-space_bottom-3"
-    appearance="primary"
-    (click)="goBack()"
-  >
+  <button  type="submit" (click)="goBack()">
     Вернуться назад
   </button>
   <div class="meme-generator">
@@ -38,18 +32,14 @@
         Создай свой мемас!
       </p>
       <button
-        tuiButton
         type="submit"
-        class="tui-space_right-3 tui-space_bottom-3"
-        appearance="primary"
         [disabled]="!memeCreation.valid"
         (click)="createMeme()"
       >
         Создать мем!
       </button>
-      <tui-input class="text-input" tuiTextfieldSize="l" formControlName="top" type="text">
+      <input class="text-input" formControlName="top" type="text">
         Текст вверху
-      </tui-input>
       <br>
       <div style="display: flex; flex-direction: row; flex-wrap: nowrap;">
         <div class="base-images-scroll">
@@ -64,9 +54,8 @@
         </div>
       </div>
       <br>
-      <tui-input class="text-input" tuiTextfieldSize="l" formControlName="bottom" type="text">
+      <input class="text-input" formControlName="bottom" type="text">
         Текст внизу
-      </tui-input>
       <br>
     </form>
 
@@ -81,19 +70,13 @@
       <img src="{{image.imagePath}}" class="pending-image" loading="lazy">
       <div style="display: flex; flex-direction: row; justify-self: center;">
         <button
-          tuiIconButton
           type="button"
-          class="tui-space_right-3 tui-space_bottom-3"
-          icon="tuiIconLikeLarge"
           [disabled]="false"
           (click)="approveMeme(image.id)"
         >
         </button>
         <button
-          tuiIconButton
           type="button"
-          class="tui-space_right-3 tui-space_bottom-3"
-          icon="tuiIconDislikeLarge"
           [disabled]="false"
           (click)="rejectMeme(image.id)"
         >

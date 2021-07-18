@@ -1,4 +1,3 @@
-import { TuiButtonModule } from '@taiga-ui/core';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -19,6 +18,7 @@ import { FinalStreamComponent } from './final-stream/final-stream.component';
 import { TwentyOneComponent } from './twenty-one/twenty-one.component';
 import { StoryShowComponent } from './story-show/story-show.component';
 import { TwentyOneDoubleComponent } from './twenty-one-double/twenty-one-double.component';
+import { SecondMaskComponent } from './second-mask/second-mask.component';
 
 @NgModule({
   declarations: [
@@ -37,11 +37,11 @@ import { TwentyOneDoubleComponent } from './twenty-one-double/twenty-one-double.
     TwentyOneComponent,
     StoryShowComponent,
     TwentyOneDoubleComponent,
+    SecondMaskComponent,
   ],
   imports: [
     CommonModule,
     LandingRoutingModule,
-    TuiButtonModule,
     SwiperModule,  
   ]
 })
