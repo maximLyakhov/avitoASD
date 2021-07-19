@@ -1,15 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-second-mask',
   templateUrl: './second-mask.component.html',
   styleUrls: ['./second-mask.component.scss']
 })
-export class SecondMaskComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class SecondMaskComponent {
 }

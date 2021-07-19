@@ -1,22 +1,39 @@
 <div class="meme-generator-page" #topScroll>
-  <h1>
-    Мем-генератор
-  </h1>
-  <button  type="submit" (click)="goBack()">
-    Вернуться назад
-  </button>
   <div class="meme-generator">
-    <h1>Предпросмотр</h1>
-    <div class="selected-image-container">
-      <div class="selected-image" #drawnMeme>
-        <img
-          *ngIf="memeCreation.controls.id.value"
-          [src]="memeCreation.controls.id.value"
-          width="500"
-          height="500"
-          crossorigin="anonymous"
-          loading="lazy"
-        >
+    <div class="title-text header">
+      <span>Мем-генератор</span>
+    </div>
+    <form [formGroup]="memeCreation" class="form">
+      <input id="top" class="text-input" formControlName="top" type="text">
+      <label for="top"
+        style="text-align: center; margin-top: -15px; z-index: 2; background-color: white; border-radius: 5px; padding: 0px 10px;">
+        Текст вверху
+      </label>
+
+      <div class="base-images">
+        <div class="base-images-scroll">
+          <div class="meme-image">
+            <img width="100%" height="100%" loading="lazy" *ngFor="let item of baseImages; index as i" src="{{item}}"
+              (click)="selectBaseImage(item, i)" [ngClass]="selectedImage === i ? 'chosen-image' : ''">
+          </div>
+        </div>
+      </div>
+
+      <label for="bot"
+        style="text-align: center; margin-bottom: -15px; z-index: 2; background-color: white; border-radius: 5px; padding: 0px 10px;">
+        Текст внизу
+      </label>
+      <input id="bot" class="text-input" formControlName="bottom" type="text">
+
+      <div>
+        <button (click)="goBack()">Вернуться назад</button>
+        <button type="submit" [disabled]="!memeCreation.valid" (click)="createMeme()">Создать мем!</button>
+      </div>
+    </form>
+    <div class="selected-image-container" #drawnMeme>
+      <div class="selected-image">
+        <img *ngIf="memeCreation.controls.id.value" [src]="memeCreation.controls.id.value" width="500" height="500"
+          crossorigin="anonymous" loading="lazy">
         <div class="text-content">
           <div class="text">
             {{ memeCreation.controls.top.value.toUpperCase() }}
@@ -27,70 +44,31 @@
         </div>
       </div>
     </div>
-    <form [formGroup]="memeCreation" class="b-form">
-      <p>
-        Создай свой мемас!
-      </p>
-      <button
-        type="submit"
-        [disabled]="!memeCreation.valid"
-        (click)="createMeme()"
-      >
-        Создать мем!
-      </button>
-      <input class="text-input" formControlName="top" type="text">
-        Текст вверху
-      <br>
-      <div style="display: flex; flex-direction: row; flex-wrap: nowrap;">
-        <div class="base-images-scroll">
-          <img
-            loading="lazy"
-            *ngFor="let item of baseImages; index as i"
-            class="meme-image"
-            src="{{item}}"
-            (click)="selectBaseImage(item, i)"
-            [ngClass]="selectedImage === i ? 'chosen-image' : ''"
-          >
-        </div>
-      </div>
-      <br>
-      <input class="text-input" formControlName="bottom" type="text">
-        Текст внизу
-      <br>
-    </form>
-
   </div>
-  
-  
-  <h1>
-    Мемы на рассмотрение
-  </h1>
+
   <div class="pending-image-container">
+    <div class="title-text">
+      Админка
+    </div>
     <div *ngFor="let image of pendingMemes" class="image-frame">
       <img src="{{image.imagePath}}" class="pending-image" loading="lazy">
       <div style="display: flex; flex-direction: row; justify-self: center;">
-        <button
-          type="button"
-          [disabled]="false"
-          (click)="approveMeme(image.id)"
-        >
+        <button type="button" (click)="approveMeme(image.id)">
+          Пропустить
         </button>
-        <button
-          type="button"
-          [disabled]="false"
-          (click)="rejectMeme(image.id)"
-        >
+        <button type="button" (click)="rejectMeme(image.id)">
+          Выбросить
         </button>
       </div>
     </div>
   </div>
-  
-  <h1>
-    Одобренные мемы
-  </h1>
-  <div class="pending-image-container">
-    <div *ngFor="let image of approvedMemes" style="display: flex; flex-direction: column; align-items: center;">
-      <img src="{{image.imagePath}}" class="pending-image">
+
+  <div class="approved-image-container">
+    <div class="title-text">
+      Мемы посетителей
+    </div>
+    <div *ngFor="let image of approvedMemes" class="approved-images">
+      <img src="{{image.imagePath}}" class="approved-image">
     </div>
   </div>
 </div>

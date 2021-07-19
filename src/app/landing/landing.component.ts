@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 
 import SwiperCore from 'swiper/core';
 import { Pagination, Mousewheel, Keyboard, Swiper } from 'swiper/core';
+import { setVh } from '../constants/vh';
 
 SwiperCore.use([Pagination, Mousewheel, Keyboard]);
 
@@ -29,6 +30,7 @@ export class LandingComponent implements OnDestroy {
   }
 
   currentIndex(smthnh: any) {
+    setVh();
     this.zone.run(() => {
       const swiper = smthnh as Swiper;
       this.router.navigateByUrl(`#${swiper.activeIndex}`);

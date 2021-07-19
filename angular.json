@@ -43,12 +43,12 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
+                  "maximumWarning": "550kb",
                   "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
+                  "maximumWarning": "4kb",
                   "maximumError": "16kb"
                 }
               ],
@@ -88,7 +88,7 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "disableHostCheck": true
+            "disableHostCheck": false
           }
         },
         "extract-i18n": {

@@ -1,19 +1,18 @@
-<div style="position: absolute; height: 100vh; width: 100vw; display: flex; flex-direction: column;">
-  <img src="../../../assets/5-header.svg">
+<div class="header">
+  <img src="../../../assets/5-header.png" class="mage">
 </div>
 
-<div class="vhvw main-column" style="flex-direction: column-reverse; bottom: -5%; z-index: 2;">
+<div class="vhvw main-column footer">
   <img src="../../../assets/5-bottom-wave.svg">
 </div>
 
-
 <div class="vhvw main-column">
   <div class="vhvw main-row">
-    <div style="width: 15vw; display: flex; flex-direction: column; justify-content: center;">
+    <div style="width: 15vw; display: flex; flex-direction: column; justify-content: center; z-index: 5;">
       <img src="../../../assets/5-blue-key.svg" style="width: 15vw;">
     </div>
 
-    <div style="width: 55vw; display: flex; flex-direction: column; justify-content: space-around;">
+    <div style="width: 55vw; display: flex; flex-direction: column; justify-content: center;">
       <div class="title-text">
         Конкурс мемов
       </div>
@@ -37,7 +36,7 @@
         <img src="../../../assets/land-memes/5-Rectangle 42.png">
       </div>
 
-      <button type="submit">
+      <button type="submit" style="z-index: 5;">
         <a routerLink="meme-generator">
           Создать мем
         </a>
@@ -51,7 +50,7 @@
     justify-content: flex-start; 
     width: 35vw; 
     align-items: flex-end; 
-    height: 100vh;">
+    height: calc(var(--vh, 1vh) * 100);">
       <img src="../../../assets/5-big-doge.png" style="position: absolute; z-index: 4; width: 30vw;">
       <div style="position: absolute; z-index: 2; width: 30vw;">
         <img src="../../../assets/5-doge-bg.svg">

@@ -1,17 +1,21 @@
-<div style="display: flex; flex-direction: row; width: 100vw; height: 100vh;">
+<div class="wrapper" style="
+  background-color: #00aaff;
+  background-image: url(../../../assets/4-flash-game-bg.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+">
   <div style="display: flex; flex-direction: column-reverse;">
-    <img src="../../../assets/4-gameboy.png"
-      style="width: 35vw; transform: translateX(-20%) translateY(-15%) rotate(348deg); z-index: 5; width: 40vw; ">
-    <div style="display: flex; flex-direction: column;">
-      <img src="../../../assets/4-green-graphic.svg"
-        style="width: 10vw;">
-  
-      <div style="position: absolute; z-index: 2; width: 40vw; bottom: 0;">
+    <img src="../../../assets/4-gameboy.png" class="gameboy">
+    <div>
+      <img src="../../../assets/4-green-graphic.svg" style="width: 10vw; margin-bottom: -8%;">
+
+      <div style="position: absolute; z-index: 2; width: 35vw; bottom: 0;">
         <img src="../../../assets/4-green-circle-hex.svg">
       </div>
     </div>
   </div>
-  <div style="display: flex; flex-direction: column; justify-content: center;">
+  <div class="content">
     <div class="title-text">
       Флеш-игра
     </div>
@@ -19,21 +23,17 @@
       Проверить рабочую почту ты всегда успеешь, а побыть Поповыми, не так часто. Залетай в прикольную пиксельную
       бродилку, собери миллиард монеток, избегая трудностей ведения бизнеса.
     </div>
-    <button [disabled]="true" type="submit" >
+    <button [disabled]="true" type="submit">
       <a routerLink="">
         PLAY
       </a>
     </button>
   </div>
-  <div>
-
+  <div class="right-angle">
+    <img src="../../../assets/4-right-angle.png" class="angle">
   </div>
 </div>
 
-<div style="position: absolute; display: flex; flex-direction: column-reverse; width: 100vw; height: 100vh;">
-  <img src="../../../assets/4-bottom-grey-wave.svg">
-</div>
-
-<div style="position: absolute; display: flex; flex-direction: column; width: 100vw; height: 100vh; justify-content: center; align-items: flex-end;">
-  <img src="../../../assets/4-right-angle.png" style="width: 15vw; aspect-ratio: 2/3;">
+<div class="bottom-wave">
+  <img src="../../../assets/4-bottom-grey-wave.png" class="wave">
 </div>

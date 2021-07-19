@@ -1,9 +1,9 @@
-import html2canvas from 'html2canvas';
-import { MemeGeneratorService } from './meme-generator.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MemeGeneratorService } from './meme-generator.service';
 import { Meme } from '../contracts/meme.interface';
 import { Location } from '@angular/common';
+import domtoimage from 'dom-to-image';
 
 @Component({
   selector: 'app-meme-generator',
@@ -24,9 +24,9 @@ export class MemeGeneratorComponent implements OnInit {
   changes: any;
 
   mockMemes: string[] = [
-    '../../assets/tearsofjoy.jpg',
-    '../../assets/unnamed.jpg',
-    '../../assets/Troll-Face.png'
+    '../../assets/meme-bases/tearsofjoy.jpg',
+    '../../assets/meme-bases/unnamed.jpg',
+    '../../assets/meme-bases/Troll-Face.png'
   ];
 
   baseImages: string[] = [];
@@ -78,19 +78,9 @@ export class MemeGeneratorComponent implements OnInit {
   }
 
   public createMeme() {
-    // this.topScroll!.nativeElement.scrollIntoView({ inline: 'start', block: 'center' });
-    html2canvas(this.userMeme!.nativeElement, {
-      width: 500,
-      height: 500,
-      // removeContainer: true,
-      allowTaint: true,
-      backgroundColor: null,
-      useCORS: true,
-      logging: false,
-    })
-      .then(canvas => canvas.toBlob(blob => {
-        this.service.uploadFile(this.service.blobToFile(blob as Blob, 'meme'))
-      }, 'image/png', 100));
+    domtoimage
+      .toBlob(this.userMeme!.nativeElement, { quality: 100, bgcolor: 'transparent', height: 500, width: 500 })
+      .then(canvas => this.service.uploadFile(this.service.blobToFile(canvas, 'meme')));
   }
 
   public approveMeme(id: number) {
