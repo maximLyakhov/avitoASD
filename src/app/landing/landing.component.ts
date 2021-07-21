@@ -4,14 +4,13 @@ import { Subject } from 'rxjs';
 
 import SwiperCore from 'swiper/core';
 import { Pagination, Mousewheel, Keyboard, Swiper } from 'swiper/core';
-import { setVh } from '../constants/vh';
 
 SwiperCore.use([Pagination, Mousewheel, Keyboard]);
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss'],
+  styleUrls: ['./landing.component.global.scss', './landing.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 
@@ -30,18 +29,17 @@ export class LandingComponent implements OnDestroy {
   }
 
   currentIndex(smthnh: any) {
-    setVh();
     this.zone.run(() => {
       const swiper = smthnh as Swiper;
-      this.router.navigateByUrl(`#${swiper.activeIndex}`);
+      this.router.navigate(['/'], { queryParams: { slide: swiper.activeIndex } });
     })
   }
 
   swiperAfterInit(some: any) {
     this.zone.run(() => {
       const swiper = some as Swiper;
-      swiper.slideTo(+this.route.snapshot.fragment!);
-      this.router.navigateByUrl(`#${swiper.activeIndex}`);
+      swiper.slideTo(this.route.snapshot.queryParams.slide);
+      this.router.navigate(['/'], { queryParams: { slide: swiper.activeIndex } });
     })
   }
 }

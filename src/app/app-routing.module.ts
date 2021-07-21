@@ -14,8 +14,8 @@ const routes: Routes = [{
   path: 'postcard',
   loadChildren: () => import('./postcard/postcard.module').then(m => m.PostcardModule),
 }, {
-  path: 'story',
-  loadChildren: () => import('./story/story.module').then(m => m.StoryModule),
+  path: 'admin',
+  loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
 }];
 
 @NgModule({

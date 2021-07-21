@@ -7,3 +7,43 @@
 .lead-text {
   margin: 5% 0;
 }
+
+.circle {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+  max-height: 50%;
+}
+.corn {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  right: 0;
+  max-height: 50%;
+}
+
+.adapt {
+  width: 40%;
+  max-height: 40%;
+  justify-content: center;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    width: 90%;
+  }
+}
+
+.irama-wrap {
+  z-index: 3;
+  width: 90%;
+  @media (max-width: 1920px) {
+    .irama {
+      height: 80%;
+      width: 100%;
+    }
+  }
+  .irama {
+    border: none;
+    border-radius: 20px;
+  }
+}

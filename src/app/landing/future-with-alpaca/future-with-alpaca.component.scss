@@ -1,0 +1,43 @@
+.twenty-one-2 {
+  .blue {
+    filter: blur(15vw);
+    position: absolute;
+    background-color: #00a2f2;
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .red {
+    filter: blur(15vw);
+    position: absolute;
+    background-color: #ff6062;
+    width: 25vw;
+    height: 25vw;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+  }
+  .green {
+    filter: blur(15vw);
+    position: absolute;
+    background-color: #96cf25;
+    width: 12vw;
+    height: 16vw;
+    border-radius: 50%;
+    left: 0;
+    bottom: 0;
+  }
+  .purple {
+    filter: blur(15vw);
+    position: absolute;
+    background-color: #9658f8;
+    width: 14vw;
+    height: 20vw;
+    border-radius: 50%;
+    right: 0;
+    bottom: 0;
+  }
+}

@@ -1,31 +1,35 @@
-<div class="vhvw"
-  style="position: absolute; align-items: center; display: flex; flex-direction: column; justify-content: center;">
-  <img src="../../../assets/8-red-circle.svg" style="width: 45vw; position: absolute; z-index: -2;">
-  <img src="../../../assets/8-red-thing.png"
-    style="width: 55vw; z-index: -1; display: flex; flex-direction: column-reverse; position: absolute;">
-  <img src="../../../assets/8-bottom.svg" style="position: absolute; bottom: 0;">
+<div class="hwhh booton">
+  <button [disabled]="true" type="submit">
+    <a routerLink="">
+      Скачать!
+    </a>
+  </button>
 </div>
 
-<div class="main-row vhvw">
-  <div class="main-column" style="width: 27.5vw; flex-direction: column-reverse;">
-    <img src="../../../assets/8-white-key.svg" style="width: 15vw">
+<div class="hwhh tiitle">
+  <div class="title-text">
+    Стикерпак
   </div>
-  <div class="main-column" style="width: 60vw; justify-content: center; align-items: center; background-color: red; border-radius: 50%; height: 60vh;">
-    <div class="title-text">
-      Стикерпак
-    </div>
-    <div class="lead-text" style="text-align: center;">
-      Один годный стикер заменяет пятьдесят
-      сложносочиненных предложений.
+</div>
+
+<div class="bottom-wave">
+  <img src="../../../assets/8-bottom.svg" class="wave">
+</div>
+
+<div class="main-row hwhh">
+  <div class="main-column left-column">
+    <img src="../../../assets/8-white-key.svg" class="key">
+  </div>
+  <div class="main-column c-col">
+
+    <div class="lead-text">
+      Один годный стикер заменяет пятьдесят сложносочиненных предложений.
+      <br>
       Качай и используй в рабочих чатах
     </div>
-    <button [disabled]="true" type="submit">
-      <a routerLink="">
-        Посмотреть стикеры!
-      </a>
-    </button>
+
   </div>
-  <div class="main-column" style="width: 27.5vw; align-items: flex-end; justify-content: center;">
-    <img src="../../../assets/hex-r-crop.svg" alt="" style="width: 10vw;">
+  <div class="main-column right-column">
+    <img src="../../../assets/hex-r-crop.svg" class="hex">
   </div>
 </div>

@@ -1,6 +1,6 @@
 .swiper-container {
   width: 100vw;
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100%;
   background: #eaeaea;
 
   .swiper-wrapper {
@@ -13,7 +13,7 @@
 
       .screen {
         width: 100vw;
-        height: calc(var(--vh, 1vh) * 100);
+        height: 100%;
       }
 
       .first-screen {
@@ -27,10 +27,6 @@
 
       .tenth-screen {
         background-color: #ff6062;
-      }
-
-      .eleventh-screen {
-        background-color: #00aaff;
       }
 
       .twelveth-screen {

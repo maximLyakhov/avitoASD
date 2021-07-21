@@ -1,0 +1,22 @@
+.twenty-one-2 {
+  .green {
+    filter: blur(15vw);
+    position: absolute;
+    background-color: #96cf25;
+    width: 12vw;
+    height: 16vw;
+    border-radius: 50%;
+    left: 0;
+    top: 10%;
+  }
+  .purple {
+    filter: blur(15vw);
+    position: absolute;
+    background-color: #9658f8;
+    width: 14vw;
+    height: 20vw;
+    border-radius: 50%;
+    right: 0;
+    top: 10%;
+  }
+}

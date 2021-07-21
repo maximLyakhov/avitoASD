@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: row;
   width: 100vw;
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100%;
   .gameboy {
-    width: 35vw;
     transform: translateX(-20%) translateY(-10%) rotate(348deg);
+    max-width: 30vw;
     z-index: 5;
-    width: 40vw;
   }
   .content {
+    margin-left: 5vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,19 +25,5 @@
       aspect-ratio: 2/3;
       width: 100%;
     }
-  }
-}
-
-.bottom-wave {
-  display: flex;
-  flex-direction: column-reverse;
-  position: absolute;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-  .wave {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
   }
 }

@@ -1,4 +1,13 @@
-<div>
+<div *ngIf="!hideForm" >
+  <form [formGroup]="form" (ngSubmit)="proceed()">
+    <input type="text" name="" autocomplete="username" id="k" formControlName="key">
+    <input type="password" name="" id="v" autocomplete="new-password" formControlName="value">
+    <button type="submit">
+      OK
+    </button>
+  </form>
+</div>
+<!-- <div>
   <h1>
     Админка
   </h1>
@@ -8,4 +17,4 @@
 </button>
 <button type="submit">
   Отклонить
-</button>
+</button> -->

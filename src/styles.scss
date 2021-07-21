@@ -1,10 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~swiper/swiper-bundle";
-@supports (-webkit-touch-callout: none) {
-  body {
-    height: -webkit-fill-available;
-  }
-}
 @font-face {
   font-family: "Lato";
   src: local("Lato"), url(assets/fonts/Lato/Lato-Regular.ttf) format("truetype");
@@ -12,10 +7,8 @@
 
 html,
 body {
-  width: 100vw;
-  height: 100%;
-  height: -webkit-fill-available;
-  position: fixed;
+  width: 100%;
+  height: 100%;;
 }
 
 body {
@@ -26,75 +19,22 @@ body {
 }
 
 button {
-  border: unset;
   width: min-content;
-  padding: 10px 30px;
-  border-radius: 15px;
+  padding: 20px 50px;
   font-family: "Lato", sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 15px;
   line-height: 16px;
   text-align: center;
   white-space: nowrap;
-  background-color: whitesmoke;
-  box-shadow: 4px 0px 0px #007aff, 0px 4px 0px #96cf25, -4px 0px 0px #ff6062, 0px -4px 0px #A069F7;
+  background: #FFFFFF;
+  border-radius: 15px;
+  border: none;
   color: inherit;
+  z-index: 6;
   a {
     text-decoration: none;
-  }
-}
-
-.vhvw {
-  height: 100%;
-  height: -webkit-fill-available;
-  height: calc(var(--vh, 1vh) * 100);
-  width: 100%;
-  width: 100vw;
-  position: absolute;
-}
-
-.main-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.main-row {
-  display: flex;
-  flex-direction: row;
-}
-
-.title-text {
-  font-size: 56px;
-  line-height: 56px;
-  font-weight: 800;
-  color: white;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    line-height: 36px;
-  }
-}
-
-.lead-text {
-  width: 40vw;
-  color: white;
-  margin-top: 2ch;
-  font-size: 26px;
-  line-height: 28px;
-  font-weight: 400;
-  margin: 10% 0;
-  @media (max-width: 1024px) {
-    font-size: 22px;
-    width: 100%;
-  }
-  @media (max-width: 680px) {
-    font-size: 20px;
-  }
-  @media (max-width: 420px) {
-    font-size: 16px;
-  }
-  @media (max-width: 320px) {
-    font-size: 14px;
-    line-height: 18px;
+    color: unset;
   }
 }
 

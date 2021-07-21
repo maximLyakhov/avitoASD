@@ -22,21 +22,64 @@
   }
 }
 
-.memes {
-  @include scrollbars(10px, #00aaff);
-}
-
-.header {
-  position: absolute;
-  height: calc(var(--vh, 1vh) * 100);
-  width: 100vw;
+.left-column {
+  width: 15vw;
   display: flex;
   flex-direction: column;
-  .mage {
-    width: 100%;
-    position: absolute;
-    top: 0;
+  justify-content: center;
+  z-index: 5;
+  .key {
+    width: 15vw;
   }
+}
+
+.content {
+  width: 55vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  width: 35vw;
+  align-items: flex-end;
+  height: 100%;
+  .doge {
+    position: absolute;
+    z-index: 4;
+    width: 30vw;
+  }
+  .doge-bg {
+    position: absolute;
+    z-index: 2;
+    width: 30vw;
+  }
+}
+
+.memes {
+  @include scrollbars(10px, #00aaff);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: 2vh;
+  column-gap: 3vh;
+  overflow-x: auto;
+  max-height: 40vh;
+  overflow-y: hidden;
+}
+
+.lead-text {
+  color: #000000;
+  filter: none;
+}
+
+.title-text {
+  color: #000000;
+  filter: none;
 }
 
 .footer {
