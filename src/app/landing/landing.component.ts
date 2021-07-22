@@ -15,6 +15,23 @@ SwiperCore.use([Pagination, Mousewheel, Keyboard]);
 })
 
 export class LandingComponent implements OnDestroy {
+  arr = [
+    '',
+    '2011',
+    '',
+    '',
+    '',
+    '',
+    '2021',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '2121',
+    '',
+    '',
+  ]
   private destroy$ = new Subject<any>();
 
   constructor(
@@ -36,6 +53,16 @@ export class LandingComponent implements OnDestroy {
   }
 
   swiperAfterInit(some: any) {
+    let i = 0;
+    document.querySelectorAll('.swiper-pagination-bullet')
+            .forEach(e => {
+              const el = document.createElement('span');
+              el.className = 'page-year';
+              el.innerHTML = this.arr[i];
+              e.appendChild(el);
+              i++
+            });
+
     this.zone.run(() => {
       const swiper = some as Swiper;
       swiper.slideTo(this.route.snapshot.queryParams.slide);

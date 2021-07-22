@@ -68,3 +68,19 @@
     }
   }
 }
+
+.swiper-pagination-bullet {
+  .page-year {
+    position: relative;
+    left: -375%;
+    bottom: 25%;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  .page-year {
+    position: relative;
+    left: -375%;
+    bottom: 20%;
+  }
+}

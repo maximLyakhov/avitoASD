@@ -1,0 +1,14 @@
+.alpaca {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 6;
+  .image {
+    max-width: 200px;
+    aspect-ratio: 125/166;
+  }
+}
+
+.toast-success {
+  background-color: #96cf25;
+}

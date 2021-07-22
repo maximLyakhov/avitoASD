@@ -19,6 +19,7 @@ import { TwentyOneComponent } from './twenty-one/twenty-one.component';
 import { StoryShowComponent } from './story-show/story-show.component';
 import { TwentyOneDoubleComponent } from './twenty-one-double/twenty-one-double.component';
 import { SecondMaskComponent } from './second-mask/second-mask.component';
+import { AlpacaComponent } from './alpaca/alpaca.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SecondMaskComponent } from './second-mask/second-mask.component';
     StoryShowComponent,
     TwentyOneDoubleComponent,
     SecondMaskComponent,
+    AlpacaComponent,
   ],
   imports: [
     CommonModule,
