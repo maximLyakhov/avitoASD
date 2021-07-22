@@ -20,8 +20,8 @@
 }
 
 .title-text {
-  font-size: 56px;
-  line-height: 56px;
+  font-size: 62px;
+  line-height: 60px;
   font-weight: 800;
   color: white;
   filter: drop-shadow(1px 1px 1px #303030);
@@ -29,30 +29,48 @@
     font-size: 36px;
     line-height: 36px;
   }
+  @media (max-height: 500px) {
+    font-size: 24px;
+    line-height: 24px;
+  }
 }
 
 .lead-text {
   width: 40vw;
   color: white;
   margin-top: 2ch;
-  font-size: 26px;
-  line-height: 28px;
-  font-weight: 400;
-  margin: 10% 0;
+  margin-bottom: 2ch;
+  font-size: 32px;
+  line-height: 34px;
+  font-weight: 500;
   filter: drop-shadow(1px 1px 1px #303030);
   @media (max-width: 1024px) {
     font-size: 22px;
     width: 100%;
   }
+  @media (max-height: 768px) {
+    font-size: 24px;
+    line-height: 26px;
+  }
   @media (max-width: 680px) {
     font-size: 20px;
+    line-height: 22px;
+  }
+  @media (max-height: 667px) {
+    font-size: 14px;
+    line-height: 18px;
   }
   @media (max-width: 420px) {
     font-size: 16px;
+    line-height: 18px;
   }
-  @media (max-width: 320px) {
+  @media (max-width: 360px) {
     font-size: 14px;
     line-height: 18px;
+  }
+
+  @media (max-height: 400px) {
+    margin: 0 0;
   }
 }
 

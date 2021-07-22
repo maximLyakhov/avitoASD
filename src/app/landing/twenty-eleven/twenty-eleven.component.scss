@@ -9,6 +9,9 @@
   z-index: 1;
   .eleven {
     width: 60%;
+    aspect-ratio: 3/2;
+    max-height: 80%;
+    max-width: 80%;
   }
 }
 
@@ -22,7 +25,10 @@
   position: absolute;
   z-index: -1;
   .cir {
+    max-height: 80%;
+    max-width: 80%;
     width: 35%;
+    aspect-ratio: 1/1;
   }
 }
 

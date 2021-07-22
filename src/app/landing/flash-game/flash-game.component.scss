@@ -9,10 +9,15 @@
     z-index: 5;
   }
   .content {
-    margin-left: 5vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    z-index: 6;
+    .flash-btn {
+      color: #9658f8;
+      margin-left: 30px;
+      font-size: 20px;
+    }
   }
   .right-angle {
     display: flex;

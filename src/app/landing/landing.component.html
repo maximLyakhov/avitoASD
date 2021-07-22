@@ -5,6 +5,8 @@
   [mousewheel]="true"
   (activeIndexChange)="currentIndex($event)"
   (afterInit)="swiperAfterInit($event)"
+  [preventInteractionOnTransition]="true"
+  class="landing"
 >
   <div class="swiper-pagination" #swiperPagination></div>
   <ng-template swiperSlide>
@@ -37,9 +39,9 @@
   <ng-template swiperSlide>
     <app-story-show class="tenth-screen screen space-between"></app-story-show>
   </ng-template>
-  <ng-template swiperSlide>
+  <!-- <ng-template swiperSlide>
     <app-video-joke class="eleventh-screen screen space-between"></app-video-joke>
-  </ng-template>
+  </ng-template> -->
   <ng-template swiperSlide>
     <app-final-stream class="twelveth-screen screen space-between"></app-final-stream>
   </ng-template>

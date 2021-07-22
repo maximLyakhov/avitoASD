@@ -1,5 +1,7 @@
 .meme-generator-page {
-  max-width: 100vw;
+  width: 100vw;
+  height: 100%;
+  flex-grow: 1;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;

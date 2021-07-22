@@ -1,91 +1,102 @@
-@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
-  // For Google Chrome
-  &::-webkit-scrollbar {
-    width: $size;
-    height: $size;
-  }
+$memewidth: 300px;
 
-  &::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background: $foreground-color;
-  }
-
-  &::-webkit-scrollbar-track {
-    border-radius: 5px;
-
-    background: $background-color;
-  }
-
-  & {
-    scrollbar-face-color: $foreground-color;
-    scrollbar-track-color: $background-color;
-  }
-}
-
-.left-column {
-  width: 15vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 5;
-  .key {
+.meme-unique {
+  .left-column {
     width: 15vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 5;
+    .key {
+      width: 15vw;
+    }
   }
-}
+  .content {
+    width: 55vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5vw;
+    z-index: 5;
+    .meme-btn {
+      background: #96cf25;
+      border-radius: 15px;
+      filter: drop-shadow(1px 1px 1px #303030);
+      color: #eaeaea;
+    }
+    .lead-text {
+      color: #000000;
+      filter: none;
+      margin: 5% 0;
+    }
+    .title-text {
+      color: #000000;
+      filter: none;
+    }
 
-.content {
-  width: 55vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.right-column {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-start;
-  width: 35vw;
-  align-items: flex-end;
-  height: 100%;
-  .doge {
-    position: absolute;
-    z-index: 4;
-    width: 30vw;
+    .memes {
+      z-index: 10;
+      width: $memewidth;
+      height: 300px;
+      .swiper-meme {
+        justify-content: center;
+        width: $memewidth;
+        .swiper-wrapper {
+          .swiper-meme-slide {
+            flex-shrink: 0;
+            display: flex;
+            height: 100%;
+            align-items: center;
+            position: relative;
+            .imgee {
+              max-width: $memewidth;
+              max-height: $memewidth;
+            }
+          }
+        }
+        .swiper-pagination-bullets {
+          display: unset;
+          .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            .page-year {
+              display: none;
+            }
+          }
+          .swiper-pagination-bullet-active {
+            border: 2px solid rgb(150, 207, 37);
+            width: 12px;
+            height: 12px;
+            padding: 2px;
+            background-color: transparent;
+            background-clip: content-box;
+            opacity: 0.5;
+            .page-year {
+              display: none;
+            }
+          }
+        }
+      }
+    }
   }
-  .doge-bg {
-    position: absolute;
-    z-index: 2;
-    width: 30vw;
+  .right-column {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    width: 35vw;
+    align-items: flex-end;
+    height: 100%;
+    .doge {
+      position: absolute;
+      z-index: 4;
+      width: 30vw;
+    }
+    .doge-bg {
+      position: absolute;
+      z-index: 2;
+      width: 30vw;
+    }
   }
-}
-
-.memes {
-  @include scrollbars(10px, #00aaff);
-  background-color: rgba(245, 245, 245, 0.5);
-  border-radius: 15px;
-  z-index: 4;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  column-gap: 3vh;
-  overflow-x: auto;
-  max-height: 40vh;
-  overflow-y: hidden;
-  align-items: center;
-  flex-flow: row nowrap;
-  .img {
-    max-width: 200px;
-  }
-}
-
-.lead-text {
-  color: #000000;
-  filter: none;
-}
-
-.title-text {
-  color: #000000;
-  filter: none;
 }
 
 .footer {

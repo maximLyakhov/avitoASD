@@ -1,3 +1,4 @@
+<!-- absolutes -->
 <div class="right-top">
   <img src="../../../assets/9-right-top.svg" style="width: 10vw;">
 </div>
@@ -11,10 +12,10 @@
 </div>
 
 <div class="hwhh main-row wrapper">
-  <div class="main-column" style="justify-content: center;">
-    <img src="../../../assets/hex-l-crop.svg" style="width: 7vw;">
+  <div class="main-column left-col">
+    <img src="../../../assets/hex-l-crop.svg" class="hex">
   </div>
-  <div class="main-column" style="justify-content: center; width: 50vw;">
+  <div class="main-row addd content">
     <div class="title-text">
       Флешмоб
     </div>
@@ -23,28 +24,50 @@
       а самая интересная работа будет выставлена
       в музее современного искусства «Эрарта»
     </div>
-    <button type="submit" style="margin-bottom: 10px;">
-      <a routerLink="contest-image">
-        Загрузить фотографию
-      </a>
-    </button>
-    <div class="scroll">
-      <img src="../../../assets/flash-mob/39.png" width="200px">
-      <img src="../../../assets/flash-mob/40.png" width="200px">
-      <img src="../../../assets/flash-mob/41.png" width="200px">
-      <img src="../../../assets/flash-mob/42.png" width="200px">
-      <img src="../../../assets/flash-mob/43.png" width="200px">
-      <img src="../../../assets/flash-mob/44.png" width="200px">
-      <img src="../../../assets/flash-mob/45.png" width="200px">
-      <img src="../../../assets/flash-mob/46.png" width="200px">
+    <div (click)="click()" >
+      <button type="submit" style="margin-bottom: 10px;">
+        <a #link routerLink="contest-image">
+          Загрузить!
+        </a>
+      </button>
     </div>
-  </div>
-  <div class="main-column" style="justify-content: center; width: 35vw;">
-    <div style="height: 50%; display: flex; flex-direction: column-reverse;">
-      <img src="../../../assets/9-graphic.png" style="max-height: 100%; max-width: 100%; aspect-ratio: 3/2; z-index: 0;">
+
+    <div class="main-column graphics">
+      <div class="fl-wrap">
+        <div class="graphic">
+          <img class="imge" src="../../../assets/9-graphic.png">
+        </div>
+        <div class="temes">
+          <swiper class="swiper-teme" [autoplay]="{ delay: 2500 }" [preventInteractionOnTransition]="true"
+            [direction]="'horizontal'" [nested]="true" [pagination]="{ clickable: true }">
+            <div class="swiper-pagination"></div>
+            <ng-template swiperSlide class="swiper-teme-slide">
+              <img class="imgee" src="../../../assets/flash-mob/39.png">
+            </ng-template>
+            <ng-template swiperSlide class="swiper-teme-slide">
+              <img class="imgee" src="../../../assets/flash-mob/40.png">
+            </ng-template>
+            <ng-template swiperSlide class="swiper-teme-slide">
+              <img class="imgee" src="../../../assets/flash-mob/41.png">
+            </ng-template>
+            <ng-template swiperSlide class="swiper-teme-slide">
+              <img class="imgee" src="../../../assets/flash-mob/42.png">
+            </ng-template>
+            <ng-template swiperSlide class="swiper-teme-slide">
+              <img class="imgee" src="../../../assets/flash-mob/43.png">
+            </ng-template>
+            <ng-template swiperSlide class="swiper-teme-slide">
+              <img class="imgee" src="../../../assets/flash-mob/44.png">
+            </ng-template>
+            <ng-template swiperSlide class="swiper-teme-slide">
+              <img class="imgee" src="../../../assets/flash-mob/45.png">
+            </ng-template>
+            <ng-template swiperSlide class="swiper-teme-slide">
+              <img class="imgee" src="../../../assets/flash-mob/46.png">
+            </ng-template>
+          </swiper>
+        </div>
+      </div>
     </div>
-    <div style="height: 50%;"></div>
-  </div>
-  <div class="main-column" style="width: 7vw;">
   </div>
 </div>

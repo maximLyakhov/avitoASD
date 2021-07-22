@@ -12,13 +12,21 @@
     margin-left: 10%;
     max-height: 100%;
     .logo {
-      aspect-ratio: 346/98;
+      aspect-ratio: 7/2;
       max-width: 20%;
       max-height: 20%;
+      min-width: 120px;
     }
     .keyboard {
       width: 100%;
       margin: 15% 0 10% 0;
+      min-width: 205px;
+      @media (max-height: 500px) {
+        margin: 7% 0 0 0;
+      }
+      @media (max-height: 300px) {
+        margin: 2%;
+      }
     }
     .lead-text {
       color: #2d2d2d;
@@ -45,8 +53,8 @@
     position: absolute;
     left: 0;
     top: 27%;
-    max-height: 16%;
-    width: 10%;
+    max-width: 10vw;
+    max-height: 12%;
   }
   .right-graphic {
     height: 100%;;

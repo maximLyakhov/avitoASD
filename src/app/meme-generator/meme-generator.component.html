@@ -25,7 +25,11 @@
       </label>
       <input id="bot" class="text-input" formControlName="bottom" type="text">
 
-      <div>
+      <div style="
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+      ">
         <button (click)="goBack()">Вернуться назад</button>
         <button type="submit" [disabled]="!memeCreation.valid" (click)="createMeme()">Создать мем!</button>
       </div>
@@ -46,7 +50,7 @@
     </div>
   </div>
 
-  <div class="pending-image-container">
+  <!-- <div class="pending-image-container">
     <div class="title-text">
       Админка
     </div>
@@ -61,7 +65,7 @@
         </button>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="approved-image-container">
     <div class="title-text">

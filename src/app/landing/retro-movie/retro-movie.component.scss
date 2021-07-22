@@ -1,6 +1,4 @@
 .wrapper {
-  height: 100%;;
-  height: 100%;
   height: 100%;
   width: 100%;
   display: flex;
@@ -9,38 +7,40 @@
     display: flex;
     flex-direction: column;
     width: 10%;
-    height: 100%;;
   }
   .center {
     display: flex;
-    height: 90%;;
     flex-direction: column;
-    width: 60%;
+    width: 70%;
     justify-content: center;
-    .lead-text {
-      margin: 20px 0;
-      @media (max-width: 1024px) {
-        // width: 150%;
-      }
-    }
-    .video-wrapper {
-      aspect-ratio: 4/3;
-      background-color: #303030;
-      border-radius: 20px;
-      z-index: 3;
-      max-width: 100%;
-      .iframe {
-        max-height: 100%;
+    flex-grow: 1;
+    .addy {
+      height: 100%;
+      width: 100%;
+      justify-content: center;
+      max-height: 100%;
+      flex-direction: column;
+      display: flex;
+      .video-wrapper {
+        background-color: #303030;
         border-radius: 20px;
+        max-height: 50%;
+        aspect-ratio: 5/3;
+        position: relative;
+        .iframe {
+          position: relative;
+          z-index: 4;
+          aspect-ratio: 5/3;
+          border-radius: 20px;
+        }
       }
     }
   }
   .right {
-    position: absolute;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;;
+    max-width: 100%;
+    min-width: 30%;
   }
 }
 
@@ -64,7 +64,7 @@
   flex-direction: column-reverse;
   position: absolute;
   overflow: hidden;
-  height: 100%;;
+  height: 100%;
   width: 100%;
 }
 .bottom-wave {

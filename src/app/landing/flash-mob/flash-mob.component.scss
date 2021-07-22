@@ -34,42 +34,94 @@
   width: 15vw;
 }
 
-@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
-  // For Google Chrome
-  &::-webkit-scrollbar {
-    width: $size;
-    height: $size;
-  }
+$temewidth: 250px;
 
-  &::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background: $foreground-color;
-  }
 
-  &::-webkit-scrollbar-track {
-    border-radius: 5px;
-
-    background: $background-color;
-  }
-
-  & {
-    scrollbar-face-color: $foreground-color;
-    scrollbar-track-color: $background-color;
+.add {
+  flex-wrap: wrap;
+}
+@media (min-width: 414px) {
+  .addd {
+    flex-direction: column;
   }
 }
 
-.scroll {
-  width: 200%;
-  z-index: 2;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  column-gap: 16px;
-  border-radius: 15px;
-  max-width: 80vw;
-  background-color: rgba(245, 245, 245, 0.5);
-  border-radius: 15px;
-  @include scrollbars(10px, #00aaff);
+.wrapper {
+  .left-col {
+    justify-content: center;
+    max-width: 10vw;
+    .hex {
+      width: 7vw;
+    }
+  }
+
+  .content {
+    justify-content: center;
+    width: 50vw;
+    flex-wrap: wrap;
+  }
+
+  .graphics {
+    justify-content: center;
+    width: 35vw;
+    align-items: center;
+    .fl-wrap {
+      .graphic {
+        display: flex;
+        flex-direction: column-reverse;
+        .imge {
+          max-height: 100%;
+          max-width: 100%;
+          aspect-ratio: 3/2;
+          z-index: 0;
+        }
+      }
+
+      .temes {
+        z-index: 10;
+        width: $temewidth;
+        height: 240px;
+        .swiper-teme {
+          justify-content: center;
+          background-color: transparent;
+          width: $temewidth;
+          .swiper-wrapper {
+            .swiper-teme-slide {
+              flex-shrink: 0;
+              display: flex;
+              height: 100%;
+              align-items: center;
+              position: relative;
+              .imgee {
+                max-width: $temewidth;
+                max-height: $temewidth;
+              }
+            }
+          }
+          .swiper-pagination-bullets {
+            display: unset;
+            .swiper-pagination-bullet {
+              width: 12px;
+              height: 12px;
+              .page-year {
+                display: none;
+              }
+            }
+            .swiper-pagination-bullet-active {
+              border: 2px solid rgb(150, 207, 37);
+              width: 12px;
+              height: 12px;
+              padding: 2px;
+              background-color: transparent;
+              background-clip: content-box;
+              opacity: 0.5;
+              .page-year {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
