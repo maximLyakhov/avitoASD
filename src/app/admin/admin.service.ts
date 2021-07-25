@@ -11,6 +11,7 @@ import { map, takeUntil } from 'rxjs/operators';
 })
 export class AdminService {
   url = config.api;
+  backEnd = config.files;
   destroy: Subject<void> = new Subject<void>();
   key: any;
   value: any;
@@ -23,13 +24,35 @@ export class AdminService {
     return this.http.get<Meme[]>(this.url + 'Meme/pending')
       .pipe(takeUntil(this.destroy))
       .pipe(map(arr => arr.map(image => {
-        console.log('arr: ', arr);
-        image.imagePath = config.api.substr(0, (config.api.length - 4)) + image.imagePath;
+        image.imagePath = this.backEnd + image.imagePath;
         return image;
       })));
   }
 
+  approveMeme(id: number): Observable<boolean> {
+    return this.http.post<boolean>(this.url + 'Meme/' + id + '/approve', id)
+      .pipe(takeUntil(this.destroy))
+  }
+
+  rejectMeme(id: number): Observable<boolean> {
+    return this.http.post<boolean>(this.url + 'Meme/' + id + '/reject', id)
+      .pipe(takeUntil(this.destroy))
+  }
+
   getPendingContestImages(): Observable<ContestImage[]> {
-    return this.http.get<ContestImage[]>(this.url + 'ContestImage/pending');
+    return this.http.get<ContestImage[]>(this.url + 'ContestImage/pending')
+      .pipe(takeUntil(this.destroy))
+      .pipe(map(arr => arr.map(image => {
+        image.imagePath = this.backEnd + image.imagePath.replace('..', '.');;
+        return image;
+      })));
+  }
+
+  approveContestImage(id: number) {
+    return this.http.post(this.url + 'ContestImage/' + id + '/approve', id);
+  }
+
+  rejectContestImage(id: number) {
+    return this.http.post(this.url + 'ContestImage/' + id + '/reject', id);
   }
 }

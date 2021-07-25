@@ -21,13 +21,23 @@
     z-index: 2;
     margin-right: 5%;
     .lead-text {
-      max-width: 75%;
+      max-width: 85%;
     }
-    .f-mask-btn {
+    button {
       background: #eaeaea;
-      border-radius: 15px;
-      filter: drop-shadow(1px 1px 1px #303030);
+      font-weight: 500;
+      border: none;
       color: #96cf25;
+      a {
+        text-decoration: none;
+        text-transform: capitalize;
+        color: unset;
+      }
+      @media (max-width: 414px) {
+        font-size: 14px;
+        padding: 10px 30px;
+        max-width: fit-content;
+      }
     }
   }
   .right-side {

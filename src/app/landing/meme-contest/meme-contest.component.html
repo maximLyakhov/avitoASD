@@ -24,9 +24,28 @@
         если у тебя получилось реально смешно.
       </div>
 
+      <div class="buttons">
+        <button (click)="link.click()" type="submit" class="meme-btn">
+          <a #link routerLink="meme-generator">
+            Создать мем
+          </a>
+        </button>
+        <input type="file" accept="image/png" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
+        <button type="button" class="meme-btn" (click)="file.click()">
+          <div style="display: flex; flex-direction: column;">
+            <span>
+              Загрузить свой
+            </span>
+            <span style="color: gray;">
+              только png
+            </span>
+          </div>
+        </button>
+      </div>
+
       <div class="memes">
-        <swiper class="swiper-meme" [autoplay]="{ delay: 2500 }" [preventInteractionOnTransition]="true" [direction]="'horizontal'" [nested]="true"
-          [pagination]="{ clickable: true }">
+        <swiper class="swiper-meme" [autoplay]="{ delay: 2500 }" [preventInteractionOnTransition]="true"
+          [direction]="'horizontal'" [nested]="true" [pagination]="{ clickable: true }">
           <div class="swiper-pagination"></div>
           <ng-template swiperSlide class="swiper-meme-slide">
             <img class="imgee" src="../../../assets/land-memes/photo_2021-07-21_21-42-39.jpg">
@@ -50,24 +69,6 @@
             <img class="imgee" src="../../../assets/land-memes/photo_2021-07-21_21-42-43.jpg">
           </ng-template>
         </swiper>
-        <div style="
-          display: flex;
-          flex-flow: row wrap;
-          justify-content: center;
-          column-gap: 10px;
-          row-gap: 10px;
-        ">
-          <button (click)="click()" type="submit" class="meme-btn">
-            <a #link routerLink="meme-generator">
-              Создать мем
-            </a>
-          </button>
-          <button (click)="clickTwo()" type="submit" class="meme-btn">
-            <a #link2>
-              Загрузить свой
-            </a>
-          </button>
-        </div>
       </div>
 
     </div>

@@ -1,0 +1,12 @@
+<div>
+  <h1 mat-dialog-title>Привет!</h1>
+  <div mat-dialog-content style="display: flex; flex-direction: column;">
+    <mat-label>Укажи своё имя, чтобы мы могли тебя найти:</mat-label>
+    <input noZoomiOS matInput [(ngModel)]="data.name">
+    <mat-label>И почту:</mat-label>
+    <input noZoomiOS matInput [(ngModel)]="data.mail">
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  </div>
+</div>

@@ -5,14 +5,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SwiperModule } from 'swiper/angular';
-import { ToastrModule } from 'ngx-toastr';
-
+import { AdminInterceptor } from './admin/admin.interceptor';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { NoZoomDirective } from './no-zoom.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NoZoomDirective,
   ],
   imports: [
     BrowserModule,
@@ -20,17 +22,17 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(), // ToastrModule added
     HttpClientModule,
     AppRoutingModule,
     SwiperModule,
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: AdminInterceptor,
-    //   multi: true
-    // }
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AdminInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent],
 })

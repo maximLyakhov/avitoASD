@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./second-mask.component.scss']
 })
 export class SecondMaskComponent {
+  wear() {
+    window.open('https://www.instagram.com/ar/507998426969997', '_blank')
+  }
 }

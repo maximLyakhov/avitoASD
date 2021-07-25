@@ -29,16 +29,13 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/robots.txt"
+              "src/robots.txt",
+              "src/web.config"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/ngx-toastr/toastr.css"
+              "src/styles.scss"
             ],
-            "scripts": [],
-            "allowedCommonJsDependencies": [
-              "angular2-text-mask"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -50,7 +47,7 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kb",
+                  "maximumWarning": "6kb",
                   "maximumError": "16kb"
                 }
               ],
@@ -88,10 +85,7 @@
               "browserTarget": "avitoASD:build:development"
             }
           },
-          "defaultConfiguration": "development",
-          "options": {
-            "disableHostCheck": false
-          }
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

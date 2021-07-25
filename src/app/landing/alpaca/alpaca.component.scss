@@ -7,21 +7,22 @@
   flex-direction: column;
   align-items: flex-end;
   .image {
-    max-width: 150px;
+    max-width: 200px;
     aspect-ratio: 125/166;
     margin-top: 20px;
   }
   .speech-bubble {
+    border: 3px solid #2e2e2e;
     position: relative;
     background: #fff;
     border-radius: 50%;
-    width: 200px;
+    width: 150px;
     padding: 50px;
     margin-right: 40px;
     text-align: center;
   }
   .speech-bubble:after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 1%;
     left: 50%;
@@ -33,5 +34,26 @@
     border-right: 0;
     margin-left: -15px;
     margin-bottom: -30px;
+  }
+
+  @media (max-height: 823px) {
+    .image {
+      max-width: 125px;
+    }
+    .speech-bubble {
+      width: 125px;
+      font-size: 15px;
+      padding: 25px;
+    }
+  }
+  @media (max-width: 414px) {
+    .image {
+      max-width: 125px;
+    }
+    .speech-bubble {
+      width: 125px;
+      font-size: 15px;
+      padding: 25px;
+    }
   }
 }

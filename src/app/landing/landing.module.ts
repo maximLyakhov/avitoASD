@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { LandingRoutingModule } from './landing-routing.module';
 import { LandingComponent } from './landing.component';
 import { SwiperModule } from "swiper/angular";
@@ -20,6 +19,10 @@ import { StoryShowComponent } from './story-show/story-show.component';
 import { TwentyOneDoubleComponent } from './twenty-one-double/twenty-one-double.component';
 import { SecondMaskComponent } from './second-mask/second-mask.component';
 import { AlpacaComponent } from './alpaca/alpaca.component';
+import { FlashModalComponent } from './flash-mob/flash-modal/flash-modal.component';
+import { MemeModalComponent } from './meme-contest/meme-modal/meme-modal.component';
+import { MaterialModule } from '../material/material.module';
+import { GratificationModalComponent } from './gratification-modal/gratification-modal.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +43,15 @@ import { AlpacaComponent } from './alpaca/alpaca.component';
     TwentyOneDoubleComponent,
     SecondMaskComponent,
     AlpacaComponent,
+    FlashModalComponent,
+    MemeModalComponent,
+    GratificationModalComponent,
   ],
   imports: [
     CommonModule,
     LandingRoutingModule,
-    SwiperModule,  
-  ]
+    SwiperModule,
+    MaterialModule,
+  ],
 })
 export class LandingModule { }

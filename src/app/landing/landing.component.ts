@@ -1,3 +1,4 @@
+import { LandingService } from './landing.service';
 import { Component, NgZone, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -38,6 +39,7 @@ export class LandingComponent implements OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
     private zone: NgZone,
+    private service: LandingService,
   ) {
   }
 
@@ -48,6 +50,7 @@ export class LandingComponent implements OnDestroy {
   currentIndex(smthnh: any) {
     this.zone.run(() => {
       const swiper = smthnh as Swiper;
+      this.service.activeIndex.next(swiper.activeIndex);
       this.router.navigate(['/'], { queryParams: { slide: swiper.activeIndex } });
     })
   }

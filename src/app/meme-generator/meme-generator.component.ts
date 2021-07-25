@@ -3,7 +3,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MemeGeneratorService } from './meme-generator.service';
 import { Meme } from '../contracts/meme.interface';
 import { Location } from '@angular/common';
+import { MemeModalComponent } from '../landing/meme-contest/meme-modal/meme-modal.component';
+import { LandingService } from '../landing/landing.service';
+import { MatDialog } from '@angular/material/dialog';
 import domtoimage from 'dom-to-image';
+import { GratificationModalComponent } from '../landing/gratification-modal/gratification-modal.component';
 
 @Component({
   selector: 'app-meme-generator',
@@ -23,49 +27,27 @@ export class MemeGeneratorComponent implements OnInit {
   selectedImage: number | null = null;
   changes: any;
 
-  mockMemes: string[] = [
-    '../../assets/meme-bases/tearsofjoy.jpg',
-    '../../assets/meme-bases/unnamed.jpg',
-    '../../assets/meme-bases/Troll-Face.png'
-  ];
-
   baseImages: string[] = [];
   pendingMemes: Meme[] = [];
   approvedMemes: Meme[] = [];
 
   constructor(
     private service: MemeGeneratorService,
-    private location: Location
+    private location: Location,
+    private landing: LandingService,
+    public dialog: MatDialog,
   ) {
   }
 
   ngOnInit(): void {
-    this.getBaseImages();
-    this.getApprovedMemes();
-    this.getPendingMemes();
+    this.service.getBaseImages().subscribe(res => {
+      this.baseImages = res;
+    });
     this.memeCreation.valueChanges.subscribe((result: { top: string, bottom: string, id: string }) => {
       this.changes = result;
       this.topText = result.top;
       this.bottomText = result.bottom;
     })
-  }
-
-  private getBaseImages() {
-    this.service.getBaseImages().subscribe(res => {
-      this.baseImages = res.concat(this.mockMemes)
-    });
-  }
-
-  private getApprovedMemes() {
-    this.service.getApprovedMemes().subscribe(res => {
-      this.approvedMemes = res;
-    });
-  }
-
-  private getPendingMemes() {
-    this.service.getPendingMemes().subscribe(res => {
-      this.pendingMemes = res;
-    });
   }
 
   selectBaseImage(item: any, i: number) {
@@ -79,25 +61,29 @@ export class MemeGeneratorComponent implements OnInit {
 
   public createMeme() {
     domtoimage
-      .toBlob(this.userMeme!.nativeElement, { quality: 100, bgcolor: 'transparent', height: 500, width: 500 })
-      .then(canvas => this.service.uploadFile(this.service.blobToFile(canvas, 'meme')));
-  }
-
-  public approveMeme(id: number) {
-    return this.service.approveMeme(id)
-      .subscribe(res => this.memeHandler(id, res));
-  }
-
-  public rejectMeme(id: number) {
-    return this.service.rejectMeme(id)
-      .subscribe(res => this.memeHandler(id, res));
-  }
-
-  private memeHandler(id: number, res: any): void {
-    if (res) {
-      const rejectedIndex = this.pendingMemes.findIndex(thing => thing.id === id);
-      this.pendingMemes.splice(rejectedIndex, 1);
-      this.getApprovedMemes();
-    }
+      .toBlob(this.userMeme!.nativeElement, { quality: 100, bgcolor: 'transparent', height: 300, width: 300 })
+      .then(blob => {
+        const file = this.service.blobToFile(blob, 'meme')
+        this.service.uploadFile(file).subscribe((result: any) => {
+          this.dialog
+            .open(MemeModalComponent, {
+              panelClass: 'flash-mob-modal',
+              data: { id: result.guid }
+            })
+            .afterClosed()
+            .subscribe(res => {
+              this.landing
+                .postMemeName({ name: res.name, mail: res.mail }, result.guid)
+                .subscribe(
+                  (res) => {
+                    this.dialog.open(GratificationModalComponent, { data: { status: true }, panelClass: 'flash-mob-modal',})
+                  },
+                  (error) => {
+                    this.dialog.open(GratificationModalComponent, { data: { status: false }, panelClass: 'flash-mob-modal',})
+                  }
+                )
+            });
+        });
+      });
   }
 }

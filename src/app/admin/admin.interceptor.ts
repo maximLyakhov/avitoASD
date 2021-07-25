@@ -1,4 +1,3 @@
-import { AdminService } from './admin.service';
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,
@@ -10,18 +9,18 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class AdminInterceptor implements HttpInterceptor {
-  key = '';
-  value = '';
-  constructor(
-    private service: AdminService,
-  ) {
-  }
-
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const authReq = request.clone({
-      headers: request.headers.set(this.service.key, this.service.value)
-    });
-    console.log('authReq: ', authReq);
-    return next.handle(authReq);
+    if (
+      request.url.includes('pending') || request.url.includes('reject')  || request.url.includes('approve')
+    ) {
+      const data: { key: string, value: string} = JSON.parse(String(localStorage.getItem('data')));
+      localStorage.getItem('data');
+      const authReq = request.clone({
+        headers: request.headers.set(data.key, data.value)
+      });
+      return next.handle(authReq);
+    } else {
+      return next.handle(request);
+    }
   }
 }

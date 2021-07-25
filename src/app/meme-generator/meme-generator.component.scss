@@ -5,9 +5,9 @@
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: #96cf25;
+  justify-content: flex-start;
   .header {
     display: flex;
     flex-direction: row;
@@ -22,12 +22,14 @@
   }
   .meme-generator {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     justify-content: center;
     .selected-image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       .selected-image {
-        aspect-ratio: 1/1;
-        max-width: 500px;
+        max-width: 300px;
         aspect-ratio: 1/1;
         object-fit: cover;
         position: relative;
@@ -39,7 +41,7 @@
           flex-direction: column;
           align-items: center;
           justify-content: space-between;
-          height: 100%;
+          height: 98%;
           width: 100%;
           color: white;
           text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 0px 1px 0 #000,
@@ -47,11 +49,11 @@
             -2px -2px 0 #000, 0px 2px 0 #000, 0px -2px 0 #000, -2px 0px 0 #000, 2px 0px 0 #000, 1px 2px 0 #000,
             -1px 2px 0 #000, 1px -2px 0 #000, -1px -2px 0 #000, 2px 1px 0 #000, -2px 1px 0 #000, 2px -1px 0 #000,
             -2px -1px 0 #000;
-          -webkit-text-stroke-width: 2px;
+          -webkit-text-stroke-width: 1px;
           -webkit-text-stroke-color: black;
           .text {
-            font-size: 48pt;
-            line-height: 50pt;
+            font-size: 18pt;
+            line-height: 20pt;
             text-align: center;
             font-weight: 500;
             max-width: 80%;

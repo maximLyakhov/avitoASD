@@ -34,12 +34,15 @@
 }
 
 .irama-wrap {
+  pointer-events: none;
   z-index: 3;
   width: 90%;
   @media (max-width: 1920px) {
     .irama {
-      height: 80%;
-      width: 100%;
+      max-width: 976px;
+      max-height: 549px;
+      aspect-ratio: 2/1;
+      margin-bottom: 20px;
     }
   }
   .irama {

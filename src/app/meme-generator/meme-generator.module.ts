@@ -1,3 +1,4 @@
+import { MaterialModule } from './../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,6 +15,7 @@ import { MemeGeneratorRoutingModule } from './meme-generator-routing.module';
     CommonModule,
     ReactiveFormsModule,
     MemeGeneratorRoutingModule,
+    MaterialModule,
   ],
   exports: [
     MemeGeneratorComponent,

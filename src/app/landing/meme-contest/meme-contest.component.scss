@@ -1,7 +1,17 @@
-$memewidth: 300px;
+:root {
+  --meme-width: 300px;
+}
+@media (max-height: 653px) {
+  :root {
+    --meme-width: 200px;
+  }
+}
 
 .meme-unique {
   .left-column {
+    @media (max-width: 414px) {
+      display: none;
+    }
     width: 15vw;
     display: flex;
     flex-direction: column;
@@ -12,17 +22,36 @@ $memewidth: 300px;
     }
   }
   .content {
-    width: 55vw;
+    margin-left: 5vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin-left: 5vw;
+    justify-content: space-evenly;
+    align-items: flex-start;
     z-index: 5;
+    .buttons {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      max-width: fit-content;
+      @media (min-height: 736px) {
+        row-gap: 20px;
+        column-gap: 20px;
+      }
+      @media (max-width: 414px) {
+        justify-content: flex-start;
+      }
+    }
     .meme-btn {
+      margin: 10px 0;
       background: #96cf25;
-      border-radius: 15px;
-      filter: drop-shadow(1px 1px 1px #303030);
       color: #eaeaea;
+      padding: 10px 20px;
+      font-weight: 500;
+      height: 50px;
+      border: none;
+      @media (max-height: 736px) {
+        margin: 1%;
+      }
     }
     .lead-text {
       color: #000000;
@@ -36,21 +65,22 @@ $memewidth: 300px;
 
     .memes {
       z-index: 10;
-      width: $memewidth;
-      height: 300px;
+      width: var(--meme-width);
+      height: var(--meme-width);
       .swiper-meme {
+        background-color: transparent;
         justify-content: center;
-        width: $memewidth;
+        width: var(--meme-width);
         .swiper-wrapper {
           .swiper-meme-slide {
             flex-shrink: 0;
             display: flex;
-            height: 100%;
+            height: var(--meme-width);
             align-items: center;
             position: relative;
             .imgee {
-              max-width: $memewidth;
-              max-height: $memewidth;
+              max-width: var(--meme-width);
+              max-height: var(--meme-width);
             }
           }
         }
@@ -80,6 +110,9 @@ $memewidth: 300px;
     }
   }
   .right-column {
+    position: absolute;
+    right: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-start;

@@ -1,0 +1,26 @@
+<div>
+  <div *ngIf="data.status; else ohno">
+    <h1 mat-dialog-title>Мы всё получили!</h1>
+    <div mat-dialog-content style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <div>
+        Посмотрим...
+      </div>
+      <img src="../../../assets/stickers/Спасибо-min.png" style="height: 150px;">
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button [mat-dialog-close]="''" cdkFocusInitial>Ok</button>
+    </div>
+  </div>
+  <ng-template #ohno>
+    <h1 mat-dialog-title>Что-то пошло не так...</h1>
+    <div mat-dialog-content style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <div>
+        Возможно это не *.png
+      </div> 
+      <img src="../../../assets/stickers/Кофе-min.png" style="height: 150px;">
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button [mat-dialog-close]="''" cdkFocusInitial>Ok</button>
+    </div>
+  </ng-template>
+</div>

@@ -1,6 +1,6 @@
-<!-- <div class="alpaca">
-  <div *ngIf="true" class="speech-bubble">
-    {{ phrases[13] }}
+<div class="alpaca" *ngIf="activeSlide !== 13">
+  <div *ngIf="messages && currentPhrase < phrases.length" class="speech-bubble">
+    {{ phrases[currentPhrase] }}
   </div>
-  <img (click)="clicked()" (touch)="clicked()" #img src="{{variable.path}}" class="image">
-</div> -->
+  <img src="{{(variable.path) + '.webp'}}" type="image/webp" class="image"  (click)="clicked(variable.duration)" (touch)="clicked(variable.duration)" #img>
+</div>

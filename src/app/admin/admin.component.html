@@ -1,20 +1,90 @@
-<div *ngIf="!hideForm" >
-  <form [formGroup]="form" (ngSubmit)="proceed()">
-    <input type="text" name="" autocomplete="username" id="k" formControlName="key">
-    <input type="password" name="" id="v" autocomplete="new-password" formControlName="value">
-    <button type="submit">
-      OK
-    </button>
-  </form>
+<div style="
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    align-content: center;
+    width: 100%;
+    align-items: center;
+    height: 100%;
+">
+  <div *ngIf="!hideForm">
+    <form [formGroup]="form" (ngSubmit)="proceed()">
+      <input type="text" name="" autocomplete="username" id="k" formControlName="key">
+      <input type="password" name="" id="v" autocomplete="new-password" formControlName="value">
+      <button type="submit">
+        OK
+      </button>
+    </form>
+  </div>
+
+  <div class="pending-image-container" style="
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%;
+    flex: 0 1 50%;
+    background: #eaeaea;
+  ">
+    <div *ngFor="let image of pendingMemes" class="image-frame">
+
+      <img src="{{image.imagePath}}" class="pending-image">
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div style="text-align: center;">
+          {{image.email}}
+        </div>
+        <div style="text-align: center;">
+          {{image.userName }}
+        </div>
+      </div>
+      <div style="
+        display: flex;
+        flex-direction: row;
+        justify-self: center;
+        width: 100%;
+        justify-content: center;
+        background-color: #eaeaea;
+      ">
+        <button type="button" (click)="approveMeme(image.id)">
+          Пропустить
+        </button>
+        <button type="button" (click)="rejectMeme(image.id)">
+          Выбросить
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="pending-image-container-boi" style="
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%;
+    flex: 0 1 50%;
+  ">
+    <div *ngFor="let image of pendingContestImages" class="image-frame">
+      <img src="{{image.imagePath}}" class="pending-image">
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div style="text-align: center;">
+          {{image.email}}
+        </div>
+        <div style="text-align: center;">
+          {{image.userName }}
+        </div>
+      </div>
+      <div style="
+        display: flex;
+        flex-direction: row;
+        justify-self: center;
+        width: 100%;
+        justify-content: center;
+      ">
+        <button type="button" (click)="approveContestImage(image.id)">
+          Пропустить
+        </button>
+        <button type="button" (click)="rejectContestImage(image.id)">
+          Выбросить
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
-<!-- <div>
-  <h1>
-    Админка
-  </h1>
-</div>
-<button type="submit">
-  Принять
-</button>
-<button type="submit">
-  Отклонить
-</button> -->

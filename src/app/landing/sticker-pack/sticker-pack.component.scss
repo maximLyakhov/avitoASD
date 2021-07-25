@@ -49,6 +49,7 @@
   align-items: center;
   text-align: center;
   position: absolute;
+  z-index: 2;
   .cir {
     display: flex;
     flex-direction: column;
@@ -67,7 +68,7 @@
     max-height: 50%;
     aspect-ratio: 1/1;
     .lead-text {
-      width: 30vw;
+      width: 28vw;
     }
   }
 }
@@ -87,4 +88,22 @@
 .wave {
   z-index: -2;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100%25' width='100%25'%3E%3Cdefs%3E%3Cpattern id='doodad' width='84' height='84' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform='rotate(261)'%3E%3Crect width='100%25' height='100%25' fill='rgba(155, 96, 250,1)'/%3E%3Cpath d='M-10 30h60v20h-60zM-10-10h60v20h-60' fill='rgba(155, 96, 250,1)'/%3E%3Cpath d='M-10 10h60v20h-60zM-10-30h60v20h-60z' fill='rgba(160, 105, 247,1)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23doodad)' height='200%25' width='200%25'/%3E%3C/svg%3E ");
+}
+
+.alpacas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  .alpaca {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 0;
+
+    .img {
+      max-width: 10vw;
+      max-height: 10vw;
+    }
+  }
 }

@@ -1,73 +1,63 @@
 <!-- absolutes -->
 <div class="right-top">
-  <img src="../../../assets/9-right-top.svg" style="width: 10vw;">
+  <img src="../../../assets/9-right-top.svg" class="imk">
 </div>
-
 <div class="right-bottom">
-  <img src="../../../assets/9-right-bottom.svg" style="width: 10vw;">
+  <img src="../../../assets/9-right-bottom.svg" class="imk">
 </div>
-
 <div class="hwhh left-bottom">
-  <img src="../../../assets/9-left-bottom.svg">
+  <img src="../../../assets/9-left-bottom.svg" class="esvg">
 </div>
 
 <div class="hwhh main-row wrapper">
   <div class="main-column left-col">
     <img src="../../../assets/hex-l-crop.svg" class="hex">
   </div>
-  <div class="main-row addd content">
+
+  <div class="main-column content">
     <div class="title-text">
       Флешмоб
     </div>
+
     <div class="lead-text">
       Выкладывай логотип ASD из всего, до чего сможешь дотянуться. Самые крутые варианты получат призы,
       а самая интересная работа будет выставлена
       в музее современного искусства «Эрарта»
     </div>
-    <div (click)="click()" >
-      <button type="submit" style="margin-bottom: 10px;">
-        <a #link routerLink="contest-image">
-          Загрузить!
-        </a>
-      </button>
-    </div>
 
-    <div class="main-column graphics">
-      <div class="fl-wrap">
-        <div class="graphic">
-          <img class="imge" src="../../../assets/9-graphic.png">
-        </div>
-        <div class="temes">
-          <swiper class="swiper-teme" [autoplay]="{ delay: 2500 }" [preventInteractionOnTransition]="true"
-            [direction]="'horizontal'" [nested]="true" [pagination]="{ clickable: true }">
-            <div class="swiper-pagination"></div>
-            <ng-template swiperSlide class="swiper-teme-slide">
-              <img class="imgee" src="../../../assets/flash-mob/39.png">
-            </ng-template>
-            <ng-template swiperSlide class="swiper-teme-slide">
-              <img class="imgee" src="../../../assets/flash-mob/40.png">
-            </ng-template>
-            <ng-template swiperSlide class="swiper-teme-slide">
-              <img class="imgee" src="../../../assets/flash-mob/41.png">
-            </ng-template>
-            <ng-template swiperSlide class="swiper-teme-slide">
-              <img class="imgee" src="../../../assets/flash-mob/42.png">
-            </ng-template>
-            <ng-template swiperSlide class="swiper-teme-slide">
-              <img class="imgee" src="../../../assets/flash-mob/43.png">
-            </ng-template>
-            <ng-template swiperSlide class="swiper-teme-slide">
-              <img class="imgee" src="../../../assets/flash-mob/44.png">
-            </ng-template>
-            <ng-template swiperSlide class="swiper-teme-slide">
-              <img class="imgee" src="../../../assets/flash-mob/45.png">
-            </ng-template>
-            <ng-template swiperSlide class="swiper-teme-slide">
-              <img class="imgee" src="../../../assets/flash-mob/46.png">
-            </ng-template>
-          </swiper>
-        </div>
+    <input type="file" accept="image/png, image/jpeg" #file placeholder="Choose file" (change)="uploadFile(file.files)"
+      style="display:none;">
+    <button type="button" class="btn" (click)="file.click()">Загрузить!</button>
+
+    <div class="temes">
+      <div *ngIf="flashMobImages">
+        <swiper class="swiper-teme" [autoplay]="{ delay: 2500 }" [preventInteractionOnTransition]="true"
+          [direction]="'horizontal'" [nested]="true" [pagination]="{ clickable: true }">
+          <ng-template *ngFor="let mg of flashMobImages" swiperSlide class="swiper-teme-slide">
+            <div>
+              <img class="imgee" src="{{mg.imagePath}}">
+            </div>
+            <div (click)="negate(mg)" class="like">
+              <ng-container *ngIf="mg.liked; else empty">
+                <div>
+                  <img src="../../../assets/like-filled.png" style="height: 25px;">
+                </div>
+              </ng-container>
+              <ng-template #empty>
+                <div>
+                  <img src="../../../assets/like-empty.png" style="height: 25px;">
+                </div>
+              </ng-template>
+              <span style="margin-left: 15px;">{{mg.likes}}</span>
+            </div>
+          </ng-template>
+          <div class="swiper-pagination"></div>
+        </swiper>
       </div>
     </div>
+  </div>
+
+  <div class="right-col">
+    <img src="../../../assets/9-graphic.png" class="graphic">
   </div>
 </div>

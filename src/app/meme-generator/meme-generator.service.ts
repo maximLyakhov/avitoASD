@@ -1,4 +1,3 @@
-import { Meme } from './../contracts/meme.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
@@ -9,7 +8,7 @@ import { map, takeUntil } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class MemeGeneratorService implements OnDestroy {
-  url = config.api + 'Meme/';
+  url = config.api + 'Meme';
   destroy = new Subject();
 
   constructor(private http: HttpClient) {
@@ -20,18 +19,11 @@ export class MemeGeneratorService implements OnDestroy {
   }
 
   getBaseImages(): Observable<string[]> {
-    return this.http.get<string[]>(this.url + 'baseImages')
+    return this.http.get<string[]>(this.url + '/baseImages')
       .pipe(takeUntil(this.destroy))
-      .pipe(map(arr => arr.map(image => config.api.substring(0, 28) + image)));
-  }
-
-  getPendingMemes(): Observable<Meme[]> {
-    return this.http.get<Meme[]>(this.url + 'pending')
-      .pipe(takeUntil(this.destroy))
-      .pipe(map(arr => arr.map(image => {
-        image.imagePath = config.api.substring(0, 28) + image.imagePath;
-        return image;
-      })));
+      .pipe(map(arr => {
+        return arr.map(image => config.files + image);
+      }));
   }
 
   blobToFile(theBlob: Blob, fileName: string): File {
@@ -43,38 +35,15 @@ export class MemeGeneratorService implements OnDestroy {
 
   uploadFile(files: any) {
     let fileToUpload = <File>files;
-    const formData = new FormData();
-    formData.append('file', fileToUpload, fileToUpload.name);
-    this.postMeme(formData)
+    let formData = new FormData()
+    formData.append('meme', fileToUpload);
+    return this.postMeme(formData)
       .pipe(takeUntil(this.destroy))
-      .subscribe((event: any) => {
-        this.getPendingMemes()
-            .pipe(takeUntil(this.destroy));
-      })
   }
 
   postMeme(thing: any): Observable<string> {
     return this.http.post<string>(this.url, thing)
       .pipe(takeUntil(this.destroy))
-  }
-
-  approveMeme(id: number): Observable<boolean> {
-    return this.http.post<boolean>(this.url + id + '/approve', id)
-      .pipe(takeUntil(this.destroy))
-  }
-
-  rejectMeme(id: number): Observable<boolean> {
-    return this.http.post<boolean>(this.url + + id + '/reject', id)
-      .pipe(takeUntil(this.destroy))
-  }
-
-  getApprovedMemes(): Observable<Meme[]> {
-    return this.http.get<Meme[]>(this.url)
-      .pipe(takeUntil(this.destroy))
-      .pipe(map(arr => arr.map(image => {
-        image.imagePath = config.api.substring(0, 28) + image.imagePath;
-        return image;
-      })));
   }
 }
 
