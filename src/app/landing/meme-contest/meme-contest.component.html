@@ -45,8 +45,11 @@
 
       <div class="memes">
         <swiper class="swiper-meme" [autoplay]="{ delay: 2500 }" [preventInteractionOnTransition]="true"
-          [direction]="'horizontal'" [nested]="true" [pagination]="{ clickable: true }">
+          [direction]="'horizontal'" [nested]="true">
           <div class="swiper-pagination"></div>
+          <ng-template swiperSlide class="swiper-meme-slide" *ngFor="let image of memeImages">
+            <img src="{{image.imagePath}}" alt="" class="imgee">
+          </ng-template>
           <ng-template swiperSlide class="swiper-meme-slide">
             <img class="imgee" src="../../../assets/land-memes/photo_2021-07-21_21-42-39.jpg">
           </ng-template>

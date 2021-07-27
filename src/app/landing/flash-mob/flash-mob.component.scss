@@ -62,7 +62,6 @@
     align-items: baseline;
     max-width: fit-content;
     max-width: 80%;
-    // flex: 0 0 50%;
   }
   .right-col {
     display: flex;
@@ -75,7 +74,7 @@
       max-width: 100%;
       max-height: 100%;
       aspect-ratio: 3/2;
-      object-fit: scale-down;
+      object-fit: contain;
     }
   }
 }
@@ -107,13 +106,12 @@
         flex-direction: column;
         align-items: center;
         height: calc(82% + 10px);
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.666);
         border-radius: 15px;
         .imgee {
           width: var(--width);
           height: calc(var(--height) - 0.3 * var(--width));
-          object-fit: cover;
-          border-radius: 15px;
+          object-fit: contain;
         }
         .like {
           display: flex;

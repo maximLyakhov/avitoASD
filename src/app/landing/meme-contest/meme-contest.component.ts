@@ -1,6 +1,7 @@
+import { Meme } from './../../contracts/meme.interface';
 import { MemeModalComponent } from './meme-modal/meme-modal.component';
 import { LandingService } from './../landing.service';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import SwiperCore, { Autoplay, Pagination } from 'swiper/core';
 import { MatDialog } from '@angular/material/dialog';
 import { GratificationModalComponent } from '../gratification-modal/gratification-modal.component';
@@ -12,11 +13,18 @@ SwiperCore.use([Pagination, Autoplay]);
   styleUrls: ['./meme-contest.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class MemeContestComponent {
+export class MemeContestComponent implements OnInit {
   constructor(
     private service: LandingService,
     public dialog: MatDialog,
   ) {
+  }
+  memeImages: Meme[] = [];
+
+  ngOnInit() {
+    this.service.getMemeImages().subscribe(res => {
+      this.memeImages = res;
+    });
   }
 
   public uploadFile(files: any) {
@@ -28,7 +36,7 @@ export class MemeContestComponent {
       formData.append('file', fileToUpload, fileToUpload.name);
       this.service
           .postMemeImage(formData)
-          .subscribe(result => {
+          .subscribe((result) => {
             this.dialog.open(MemeModalComponent, {
               panelClass: 'flash-mob-modal',
               data: { id: result.guid }
@@ -45,6 +53,9 @@ export class MemeContestComponent {
                         }
                       )
                 });
+          },
+          (error) => {
+            this.dialog.open(GratificationModalComponent, { data: { status: false }, panelClass: 'flash-mob-modal',})
           });
     }
   }

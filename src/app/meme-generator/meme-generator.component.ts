@@ -83,6 +83,9 @@ export class MemeGeneratorComponent implements OnInit {
                   }
                 )
             });
+        },
+        (error) => {
+          this.dialog.open(GratificationModalComponent, { data: { status: false }, panelClass: 'flash-mob-modal',})
         });
       });
   }

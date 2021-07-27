@@ -22,14 +22,6 @@ export class FlashMobComponent implements OnInit {
   }
   flashMobImages: ContestImage[] = [
   ];
-  // { imagePath: "../../../assets/flash-mob/39.jpg", likes: 0, id: 1, liked: false },
-  // { imagePath: "../../../assets/flash-mob/40.jpg", likes: 1, id: 2, liked: true },
-  // { imagePath: "../../../assets/flash-mob/41.jpg", likes: 0, id: 3, liked: false },
-  // { imagePath: "../../../assets/flash-mob/42.jpg", likes: 0, id: 4, liked: false },
-  // { imagePath: "../../../assets/flash-mob/43.jpg", likes: 0, id: 5, liked: false },
-  // { imagePath: "../../../assets/flash-mob/44.jpg", likes: 0, id: 6, liked: false },
-  // { imagePath: "../../../assets/flash-mob/45.jpg", likes: 0, id: 7, liked: false },
-  // { imagePath: "../../../assets/flash-mob/46.jpg", likes: 0, id: 8, liked: false },
 
   ngOnInit() {
     this.getContestImages();
@@ -80,7 +72,7 @@ export class FlashMobComponent implements OnInit {
       formData.append('file', fileToUpload, fileToUpload.name);
       this.service
           .postContestImage(formData)
-          .subscribe(result => {
+          .subscribe((result) => {
             const config = {
               panelClass: 'flash-mob-modal',
               data: { id: result.guid }
@@ -98,6 +90,9 @@ export class FlashMobComponent implements OnInit {
                       }
                     )
                 });
+          },
+          (error) => {
+            this.dialog.open(GratificationModalComponent, { data: { status: false }, panelClass: 'flash-mob-modal',})
           });
     }
   }
