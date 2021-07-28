@@ -1,3 +1,4 @@
+import { Stats } from './../contracts/stats';
 import { ContestImage } from './../contracts/contest-image.interface';
 import { Meme } from './../contracts/meme.interface';
 import { Observable, Subject } from 'rxjs';
@@ -54,5 +55,9 @@ export class AdminService {
 
   rejectContestImage(id: number) {
     return this.http.post(this.url + 'ContestImage/' + id + '/reject', id);
+  }
+
+  getContentCount(): Observable<Stats> {
+    return this.http.get<Stats>(this.url + 'Overview');
   }
 }

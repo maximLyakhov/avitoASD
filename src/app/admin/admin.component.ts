@@ -1,3 +1,4 @@
+import { Stats } from './../contracts/stats';
 import { ContestImage } from './../contracts/contest-image.interface';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -18,6 +19,18 @@ export class AdminComponent {
   hideForm = false;
   pendingMemes: Meme[] = [];
   pendingContestImages: ContestImage[] = [];
+  stats: Stats = {
+    images: {
+      all: 0,
+      approved: 0,
+      rejected: 0
+    },
+    memes: {
+      all: 0,
+      approved: 0,
+      rejected: 0
+    }
+  };
 
   constructor(
     private fb: FormBuilder,
@@ -37,6 +50,9 @@ export class AdminComponent {
 
     this.service.getPendingContestImages()
       .subscribe(images => this.pendingContestImages = images);
+
+    this.service.getContentCount()
+      .subscribe(stats => this.stats = stats);
   }
 
   public approveMeme(id: number) {
