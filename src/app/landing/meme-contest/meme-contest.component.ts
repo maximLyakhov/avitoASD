@@ -23,7 +23,9 @@ export class MemeContestComponent implements OnInit {
 
   ngOnInit() {
     this.service.getMemeImages().subscribe(res => {
-      this.memeImages = res;
+      this.memeImages = res.sort((a, b) => {
+        return a.id > b.id ? -1 : 1  || 0;
+      });
     });
   }
 
