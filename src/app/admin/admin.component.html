@@ -1,6 +1,6 @@
 <div style="
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     overflow: auto;
     align-content: center;
     width: 100%;
@@ -17,100 +17,133 @@
     </form>
   </div>
 
-  <div class="pending-image-container" style="
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    height: 100%;
-    flex: 0 1 50%;
-    background: #eaeaea;
-  ">
-    <div *ngIf="stats.memes.all > 0" style="display: flex; flex-direction: column; align-items: flex-end;">
-      <div>
-        Мемы
+  <div style="display: flex; flex-direction: row; height: 60%; width: 100%;  max-height: 60%;">
+    <div class="pending-image-container" style="
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+      height: 100%;
+      flex: 0 1 50%;
+      background: #eaeaea;
+    ">
+      <div *ngIf="stats.memes.all > 0" style="display: flex; flex-direction: column; align-items: flex-end;">
+        <div>
+          Мемы
+        </div>
+        <div>
+          Всего: {{ stats.memes.all }}
+        </div>
+        <div>
+          Одобрено: {{ stats.memes.approved }}
+        </div>
+        <div>
+          Отклонено: {{ stats.memes.rejected }}
+        </div>
       </div>
-      <div>
-        Всего: {{ stats.memes.all }}
-      </div>
-      <div>
-        Одобрено: {{ stats.memes.approved }}
-      </div>
-      <div>
-        Отклонено: {{ stats.memes.rejected }}
+      <div *ngFor="let image of pendingMemes" class="image-frame">
+        <img src="{{image.imagePath}}" class="pending-image">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <div style="text-align: center;">
+            {{image.email}}
+          </div>
+          <div style="text-align: center;">
+            {{image.userName }}
+          </div>
+        </div>
+        <div style="
+          display: flex;
+          flex-direction: row;
+          justify-self: center;
+          width: 100%;
+          justify-content: center;
+          background-color: #eaeaea;
+        ">
+          <button type="button" (click)="approveMeme(image.id)">
+            Пропустить
+          </button>
+          <button type="button" (click)="rejectMeme(image.id)">
+            Выбросить
+          </button>
+        </div>
       </div>
     </div>
-    <div *ngFor="let image of pendingMemes" class="image-frame">
-      <img src="{{image.imagePath}}" class="pending-image">
-      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <div style="text-align: center;">
-          {{image.email}}
+
+    <div class="pending-image-container-boi" style="
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+      height: 100%;
+      flex: 0 1 50%;
+    ">
+      <div *ngIf="stats.images.all > 0">
+        <div>
+          Флешмоб
         </div>
-        <div style="text-align: center;">
-          {{image.userName }}
+        <div>
+          Всего: {{ stats.images.all }}
+        </div>
+        <div>
+          Одобрено: {{ stats.images.approved }}
+        </div>
+        <div>
+          Отклонено: {{ stats.images.rejected }}
         </div>
       </div>
-      <div style="
-        display: flex;
-        flex-direction: row;
-        justify-self: center;
-        width: 100%;
-        justify-content: center;
-        background-color: #eaeaea;
-      ">
-        <button type="button" (click)="approveMeme(image.id)">
-          Пропустить
-        </button>
-        <button type="button" (click)="rejectMeme(image.id)">
-          Выбросить
-        </button>
+      <div *ngFor="let image of pendingContestImages" class="image-frame">
+        <img src="{{image.imagePath}}" class="pending-image">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <div style="text-align: center;">
+            {{image.email}}
+          </div>
+          <div style="text-align: center;">
+            {{image.userName }}
+          </div>
+        </div>
+        <div style="
+          display: flex;
+          flex-direction: row;
+          justify-self: center;
+          width: 100%;
+          justify-content: center;
+        ">
+          <button type="button" (click)="approveContestImage(image.id)">
+            Пропустить
+          </button>
+          <button type="button" (click)="rejectContestImage(image.id)">
+            Выбросить
+          </button>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="pending-image-container-boi" style="
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    height: 100%;
-    flex: 0 1 50%;
-  ">
-    <div *ngIf="stats.images.all > 0">
-      <div>
-        Флешмоб
-      </div>
-      <div>
-        Всего: {{ stats.images.all }}
-      </div>
-      <div>
-        Одобрено: {{ stats.images.approved }}
-      </div>
-      <div>
-        Отклонено: {{ stats.images.rejected }}
+  <div style="display: flex; flex-direction: row; height: 40%; width: 100%;  max-height: 40%;">
+    <div
+      style="display: flex; flex-direction: column;  overflow: auto; flex: 0 1 50%; row-gap: 20px; align-items: flex-end;">
+      <div *ngFor="let appmeme of memeContestants"
+        style="display: flex; flex-direction: row;  margin-right: 30px; margin-top: 5px;">
+        <div style="display: flex; flex-direction: column; justify-content: center; margin-right: 20px;">
+          <div>
+            {{ appmeme.userName }}
+          </div>
+          <div>
+            {{ appmeme.email }}
+          </div>
+        </div>
+        <img src="{{appmeme.imagePath}}" height="200px" width="200px" style="object-fit: contain;">
       </div>
     </div>
-    <div *ngFor="let image of pendingContestImages" class="image-frame">
-      <img src="{{image.imagePath}}" class="pending-image">
-      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <div style="text-align: center;">
-          {{image.email}}
+    <div style="display: flex; flex-direction: column;  overflow: auto; flex: 0 1 50%; row-gap: 20px;">
+      <div *ngFor="let appmeme of flasMobContestants"
+        style="display: flex; flex-direction: row;  margin-left: 30px; margin-top: 5px;">
+        <img src="{{appmeme.imagePath}}" height="200px" width="200px" style="object-fit: contain;">
+        <div style="display: flex; flex-direction: column; justify-content: center; margin-left: 20px;">
+          <div>
+            {{ appmeme.userName }}
+          </div>
+          <div>
+            {{ appmeme.email }}
+          </div>
         </div>
-        <div style="text-align: center;">
-          {{image.userName }}
-        </div>
-      </div>
-      <div style="
-        display: flex;
-        flex-direction: row;
-        justify-self: center;
-        width: 100%;
-        justify-content: center;
-      ">
-        <button type="button" (click)="approveContestImage(image.id)">
-          Пропустить
-        </button>
-        <button type="button" (click)="rejectContestImage(image.id)">
-          Выбросить
-        </button>
       </div>
     </div>
   </div>

@@ -60,4 +60,20 @@ export class AdminService {
   getContentCount(): Observable<Stats> {
     return this.http.get<Stats>(this.url + 'Overview');
   }
+
+  getMemeImages(): Observable<Meme[]> {
+    return this.http.get<Meme[]>(this.url + 'Meme/')
+      .pipe(map(arr => arr.map(image => {
+        image.imagePath = this.backEnd + image.imagePath.replace('..', '.');;
+        return image;
+      })));
+  }
+
+  getContestImages(): Observable<ContestImage[]> {
+    return this.http.get<ContestImage[]>(this.url + 'ContestImage/')
+      .pipe(map(arr => arr.map(image => {
+        image.imagePath = this.backEnd + image.imagePath.replace('..', '.');;
+        return image;
+      })));
+  }
 }

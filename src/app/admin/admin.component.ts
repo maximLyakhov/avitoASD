@@ -31,6 +31,8 @@ export class AdminComponent {
       rejected: 0
     }
   };
+  memeContestants: Meme[] =  [];
+  flasMobContestants: ContestImage[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -53,6 +55,14 @@ export class AdminComponent {
 
     this.service.getContentCount()
       .subscribe(stats => this.stats = stats);
+
+    this.service.getMemeImages().subscribe(res => {
+      this.memeContestants = res;
+    });
+
+    this.service.getContestImages().subscribe(res => {
+      this.flasMobContestants = res;
+    });
   }
 
   public approveMeme(id: number) {
