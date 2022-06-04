@@ -2,7 +2,7 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 
 const MINIMAL_FONT_SIZE_BEFORE_ZOOMING_IN_PX = 16;
 
-@Directive({ selector: '[noZoomiOS]' })
+@Directive({ selector: '[appNoZoomiOS]' })
 
 export class NoZoomDirective {
   constructor(private el: ElementRef) { }

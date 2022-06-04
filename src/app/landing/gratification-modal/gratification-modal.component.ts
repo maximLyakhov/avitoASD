@@ -6,15 +6,12 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './gratification-modal.component.html',
   styleUrls: ['./gratification-modal.component.scss']
 })
-export class GratificationModalComponent implements OnInit {
+export class GratificationModalComponent {
   data: { status: boolean };
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public datas: any,
   ) {
     this.data = datas;
-  }
-
-  ngOnInit(): void {
   }
 }

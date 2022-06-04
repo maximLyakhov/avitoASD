@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { AlpacaSet } from './../../contracts/alpaca.interface';
 import { LandingService } from './../landing.service';
 
@@ -8,7 +8,7 @@ import { LandingService } from './../landing.service';
   styleUrls: ['./alpaca.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class AlpacaComponent implements AfterViewInit {
+export class AlpacaComponent {
   @ViewChild('img') alpaca: ElementRef | undefined;
 
   idle: AlpacaSet = {
@@ -66,9 +66,6 @@ export class AlpacaComponent implements AfterViewInit {
   ];
   clickCount = 0;
   activeSlide: number | undefined;
-
-  ngAfterViewInit(): void {
-  }
 
   constructor(
     private service: LandingService,
